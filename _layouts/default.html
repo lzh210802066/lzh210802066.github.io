@@ -1,469 +1,229 @@
 <!DOCTYPE html>
-
 <html lang="zh-CN">
 
-
-
 <head>
-
-  <meta charset="UTF-8">
-
-  <title>{{ page.title }} - {{ site.title }}</title>
-
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-
-  <style>
-
-    body {
-
-      margin: 0;
-
-      font-family: "Helvetica Neue", Arial, sans-serif;
-
-      display: flex;
-
-      flex-direction: column;
-
-      min-height: 100vh;
-
-      background: #e0f7fa;
-
-      color: #333;
-
-      line-height: 1.6;
-
-    }
-
-
-
-    header {
-
-      background: #1565c0;
-
-      color: #fff;
-
-      padding: 1rem 2rem;
-
-      position: sticky;
-
-      top: 0;
-
-      z-index: 1000;
-
-    }
-
-
-
-    .header-container {
-
-      display: flex;
-
-      justify-content: space-between;
-
-      align-items: center;
-
-    }
-
-
-
-    .header-container h1 a {
-
-      color: #fff;
-
-      text-decoration: none;
-
-      font-weight: 600;
-
-    }
-
-
-
-    nav.horizontal-nav {
-
-      display: flex;
-
-      gap: 1.5rem;
-
-      align-items: center;
-
-    }
-
-
-
-    nav.horizontal-nav a {
-
-      color: #fff;
-
-      text-decoration: none;
-
-      font-weight: 500;
-
-      transition: color 0.3s;
-
-    }
-
-
-
-    nav.horizontal-nav a:hover {
-
-      color: #ffd700;
-
-    }
-
-
-
-    .nav-item {
-
-      position: relative;
-
-    }
-
-
-
-    .submenu {
-
-      display: none;
-
-      position: absolute;
-
-      top: 100%;
-
-      left: 0;
-
-      background: white;
-
-      list-style: none;
-
-      padding: 5px 0;
-
-      min-width: 120px;
-
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-
-      border-radius: 4px;
-
-    }
-
-
-
-    .nav-item:hover .submenu {
-
-      display: block;
-
-    }
-
-
-
-    .submenu li a {
-
-      color: #333;
-
-      padding: 5px 10px;
-
-      display: block;
-
-      text-decoration: none;
-
-    }
-
-
-
-    .submenu li a:hover {
-
-      color: #1565c0;
-
-    }
-
-
-
-    main {
-
-      flex: 1;
-
-      width: 95%;
-
-      max-width: 1400px;
-
-      margin: 20px auto;
-
-      padding: 20px;
-
-      background: #fff;
-
-      border-radius: 10px;
-
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-
-    }
-
-
-
-    footer {
-
-      text-align: center;
-
-      padding: 15px;
-
-      background: #1565c0;
-
-      color: #fff;
-
-      margin-top: 40px;
-
-      border-top: 3px solid #ffd700;
-
-    }
-
-
-
-    .post-list {
-
-      list-style: none;
-
-      padding: 0;
-
-      margin-bottom: 2rem;
-
-    }
-
-
-
-    .post-list h2 a {
-
-      color: #1565c0;
-
-      text-decoration: none;
-
-      font-weight: 600;
-
-    }
-
-
-
-    .post-list h2 a:hover {
-
-      color: #ffd700;
-
-    }
-
-
-
-    .post-date {
-
-      font-size: 0.9rem;
-
-      color: #777;
-
-    }
-
-
-
-    .post-excerpt {
-
-      margin-top: 0.5rem;
-
-    }
-
-
-
-    h1, h2 {
-
-      margin-top: 0;
-
-      font-weight: 600;
-
-    }
-
-
-
-    @media (max-width: 768px) {
-
-      .header-container {
-
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        gap: 0.5rem;
-
-      }
-
-
-
-      nav.horizontal-nav {
-
-        flex-direction: column;
-
-        width: 100%;
-
-      }
-
-
-
-      nav.horizontal-nav a {
-
-        padding: 10px 0;
-
-        width: 100%;
-
-      }
-
-
-
-      .nav-item .submenu {
-
-        position: static;
-
-        box-shadow: none;
-
-        border-radius: 0;
-
-        display: block;
-
-      }
-
-
-
-      main {
-
-        width: 95%;
-
-        margin: 10px auto;
-
-        padding: 15px;
-
-      }
-
-
-
-      .post-list h2 {
-
-        font-size: 1.2rem;
-
-      }
-
-
-
-      .post-list p {
-
-        font-size: 0.95rem;
-
-      }
-
-    }
-
-  </style>
-
+  <meta charset="UTF-8">
+  <title>{{ page.title }} - {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background: #e0f7fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #1565c0;
+      color: #fff;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header-container h1 a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav.horizontal-nav {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    nav.horizontal-nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav.horizontal-nav a:hover {
+      color: #ffd700;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      list-style: none;
+      padding: 5px 0;
+      min-width: 120px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      border-radius: 4px;
+    }
+
+    .nav-item:hover .submenu {
+      display: block;
+    }
+
+    .submenu li a {
+      color: #333;
+      padding: 5px 10px;
+      display: block;
+      text-decoration: none;
+    }
+
+    .submenu li a:hover {
+      color: #1565c0;
+    }
+
+    main {
+      flex: 1;
+      width: 95%;
+      max-width: 1400px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #1565c0;
+      color: #fff;
+      margin-top: 40px;
+      border-top: 3px solid #ffd700;
+    }
+
+    .post-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .post-list li {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .post-list a {
+      color: #1565c0;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .post-list a:hover {
+      color: #ffd700;
+    }
+
+    .post-date {
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    h1, h2 {
+      margin-top: 0;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      nav.horizontal-nav {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      nav.horizontal-nav a {
+        padding: 10px 0;
+        width: 100%;
+      }
+
+      .nav-item .submenu {
+        position: static;
+        box-shadow: none;
+        border-radius: 0;
+        display: block; /* 移动端直接显示 */
+      }
+
+      main {
+        width: 95%;
+        margin: 10px auto;
+        padding: 15px;
+      }
+
+      .post-list h2 {
+        font-size: 1.2rem;
+      }
+
+      .post-list p {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
 </head>
 
-
-
 <body>
+  <header>
+    <div class="header-container">
+      <h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
+      <nav class="horizontal-nav">
+        <a href="{{ site.baseurl }}/">首页</a>
+        {% for item in site.data.navigation.main %}
+          <div class="nav-item">
+            <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+            {% if item.children %}
+              <ul class="submenu">
+                {% for child in item.children %}
+                  <li><a href="{{ child.url | relative_url }}">{{ child.title }}</a></li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </nav>
+    </div>
+  </header>
 
-  <!-- 顶部导航 -->
+  <main>
+    {% if page.layout == "home" %}
+      <h1>最新文章</h1>
+      {% for post in site.posts %}
+        <article class="post-list">
+          <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+          <p class="post-date">{{ post.date | date: "%Y-%m-%d" }}</p>
+          <!-- 使用 markdownify 渲染 Markdown 内容 -->
+          <div class="post-excerpt">
+            {{ post.excerpt | markdownify }}
+          </div>
+        </article>
+      {% endfor %}
+    {% else %}
+      <article class="post-content">
+        {{ content }}
+      </article>
+    {% endif %}
+  </main>
 
-  <header>
-
-    <div class="header-container">
-
-      <h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
-
-      <nav class="horizontal-nav">
-
-        <a href="{{ site.baseurl }}/">首页</a>
-
-        {% for item in site.data.navigation.main %}
-
-          <div class="nav-item">
-
-            <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
-
-            {% if item.children %}
-
-              <ul class="submenu">
-
-                {% for child in item.children %}
-
-                  <li><a href="{{ child.url | relative_url }}">{{ child.title }}</a></li>
-
-                {% endfor %}
-
-              </ul>
-
-            {% endif %}
-
-          </div>
-
-        {% endfor %}
-
-      </nav>
-
-    </div>
-
-  </header>
-
-
-
-  <!-- 主体内容 -->
-
-  <main>
-
-    {% if page.layout == "home" %}
-
-      <h1>最新文章</h1>
-
-      {% for post in site.posts %}
-
-        <article class="post-list">
-
-          <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-
-          <p class="post-date">{{ post.date | date: "%Y-%m-%d" }}</p>
-
-
-
-          <!-- 显示渲染后的 Markdown -->
-
-          <div class="post-excerpt">
-
-            {% if post.content contains '<!--more-->' %}
-
-              {{ post.content | split: '<!--more-->' | first | markdownify }}
-
-            {% else %}
-
-              {{ post.content | markdownify }}
-
-            {% endif %}
-
-          </div>
-
-        </article>
-
-      {% endfor %}
-
-    {% else %}
-
-      <!-- 文章页显示全文 -->
-
-      <article class="post-content">
-
-        {{ content }}
-
-      </article>
-
-    {% endif %}
-
-  </main>
-
-
-
-  <!-- 页脚 -->
-
-  <footer>
-
-    © 2025 Adam. 使用 GitHub Pages + Jekyll 构建
-
-  </footer>
-
+  <footer>
+    © 2025 Adam. 使用 GitHub Pages + Jekyll 构建
+  </footer>
 </body>
+
+</html>
