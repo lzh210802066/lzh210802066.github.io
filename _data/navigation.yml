@@ -1,10 +1,11 @@
-main: # 顶级导航栏数组
-  - title: "文章" # 菜单显示的文字
-    url: /posts/ # 点击后的链接地址
+main:
+  - title: "文章"
+    url: /posts/
     children:
       - title: "技术"
         url: /posts/tech/
       - title: "生活"
         url: /posts/life/
+  - title: "关于"
+    url: /about/
 
-  -
