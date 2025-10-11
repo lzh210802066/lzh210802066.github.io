@@ -181,7 +181,7 @@
   <!-- 主体内容 -->
   <main>
     {% if page.layout == "home" %}
-      <h1>最新文章</h1>
+      <h1>全部文章</h1>
       {% for post in site.posts %}
         <article class="post-list">
           <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
@@ -201,3 +201,4 @@
 </body>
 
 </html>
+
