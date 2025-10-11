@@ -23,7 +23,7 @@ search: false
 
 # 构建设置
 markdown: kramdown
-theme: "minimal-mistakes-jekyll"
+theme: "minimal"
 
 # 输出设置
 permalink: /:categories/:title/
