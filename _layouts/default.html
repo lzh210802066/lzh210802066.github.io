@@ -88,11 +88,12 @@
       color: #1565c0;
     }
 
-    /* 主体内容 */
+    /* 主体内容框（占满页面大部分宽度） */
     main {
       flex: 1;
-      max-width: 900px;
-      margin: 20px auto;
+      width: 95%;             /* 占用95%页面宽度 */
+      max-width: 1400px;      /* 最大宽度限制 */
+      margin: 20px auto;      /* 上下留空并居中 */
       padding: 20px;
       background: #fff;
       border-radius: 10px;
@@ -148,8 +149,8 @@
         gap: 0.5rem;
       }
       main {
-        width: 100%;
-        margin: 10px;
+        width: 100%;       /* 移动端占满屏幕宽度 */
+        margin: 10px 0;
       }
     }
   </style>
@@ -181,7 +182,7 @@
   <!-- 主体内容 -->
   <main>
     {% if page.layout == "home" %}
-      <h1>全部文章</h1>
+      <h1>最新文章</h1>
       {% for post in site.posts %}
         <article class="post-list">
           <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
@@ -201,4 +202,3 @@
 </body>
 
 </html>
-
