@@ -1,9 +1,92 @@
-title: 我的博客
-description: 一个现代 Jekyll 博客
-baseurl: "" 
-url: "https://qinhan8013.github.io"
-theme: minima
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: "文档"
+email: "yourname@example.com" # 建议换成你的真实邮箱
+description: >-
+twitter_username: your_twitter # 如果没有，可以删掉
+github_username: qinhan8013 # 换成你的 GitHub 用户名
+minimal_mistakes_skin: default # 可选: default, dark, neon, air, contrast
+search: false
+
+# 构建设置
 markdown: kramdown
+theme: "minimal-mistakes-jekyll"
+
+# 输出设置
+permalink: /:categories/:title/
+paginate: 5
+paginate_path: /page:num/
+timezone: Asia/Shanghai
+locale: zh-Hans
+
+include:
+  - _pages
+
+# 插件
 plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
   - jekyll-feed
-  - jekyll-seo-tag
+  - jemoji
+  - jekyll-include-cache
+
+# 作者信息
+author:
+  name: "秦汉"
+  avatar: "/assets/images/bio-photo.jpg"
+  links:
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/qinhan8013"
+    - label: "微博"
+      icon: "fab fa-fw fa-weibo"
+      url: "https://weibo.com/"
+    - label: "知乎"
+      icon: "fas fa-fw fa-book"
+      url: "https://www.zhihu.com/people/"
+
+# 默认设置
+defaults:
+  # 博文
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: false # 已关闭
+      comments: false # 已关闭
+      share: false
+      related: false
+  # 页面
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+
+# 分类与标签归档
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/
