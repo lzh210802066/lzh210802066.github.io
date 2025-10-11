@@ -3,9 +3,9 @@ main:
     url: /posts/
     children:
       - title: "技术"
-        url: /posts/tech/
+        url: /posts/技术/
       - title: "生活"
-        url: /posts/life/
+        url: /posts/生活/
   - title: "关于"
     url: /about/
 
