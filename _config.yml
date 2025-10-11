@@ -1,7 +1,7 @@
 title: 我的博客
 description: 一个现代 Jekyll 博客
 baseurl: "" 
-url: "https://你的用户名.github.io"
+url: "https://qinhan8013.github.io"
 theme: minima
 markdown: kramdown
 plugins:
