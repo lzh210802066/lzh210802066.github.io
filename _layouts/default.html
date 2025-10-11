@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }} - {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ " /assets/css/style.css" | relative_url }}">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #4682b4;
+      color: white;
+      padding: 10px 20px;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    /* 整体区域 */
+    main {
+      display: flex;
+      flex: 1;
+      background: #b0d9e8;
+    }
+
+    /* 左侧导航栏（固定+缩小） */
+    .sidebar {
+      width: 10px !important;
+      background: #f8f8f8;
+      padding: 10px !important;
+      border-right: 1px solid #ddd;
+      font-size: 14px !important;
+      position: sticky;
+      /* 关键点：粘在屏幕 */
+      top: 0;
+      height: calc(100vh - 50px);
+      /* header 高度留出 */
+      overflow-y: auto;
+      /* 如果菜单多，可以滚动 */
+    }
+
+    .sidebar h3 {
+      margin-top: 0;
+      font-size: 15px;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 6px;
+      color: #333;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .sidebar a:hover {
+      background: #ddd;
+    }
+
+    /* 正文区 */
+    .content {
+      flex: 1;
+      padding: 20px;
+      background: white;
+      margin: 20px;
+      border-radius: 8px;
+    }
+
+    /* 页脚 */
+    footer {
+      background: #333;
+      color: #b0d9e8;
+      text-align: center;
+      padding: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 顶部 header -->
+  <header>
+    <h1>{{ site.title }}</h1>
+  </header>
+
+  <!-- 左侧导航 + 主体 -->
+  <main>
+    <aside class="sidebar">
+      <h3>导航</h3>
+      <a href="{{ " /" | relative_url }}">🏠 首页</a>
+    </aside>
+
+    <div class="content">
+      {{ content }}
+    </div>
+  </main>
+
+  <!-- 底部 -->
+  <footer>
+    © 2025 Adam. 使用 GitHub Pages + Jekyll 构建
+  </footer>
+</body>
+
+</html>
