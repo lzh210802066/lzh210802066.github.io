@@ -1,0 +1,16 @@
+# Jekyll 构建生成的文件夹
+_site/
+
+# Ruby Bundler 本地安装目录
+.bundle/
+
+# VS Code 编辑器配置
+.vscode/
+
+# 系统临时文件
+*.log
+*.tmp
+.DS_Store
+
+# Mac 生成的资源文件
+*.swp
