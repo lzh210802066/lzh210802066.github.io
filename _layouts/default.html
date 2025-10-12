@@ -1,53 +1,119 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+        HTML5 文档声明与语言设定
+        lang="zh-CN" 指定网页为简体中文，有助于搜索引擎与浏览器正确识别语言。
+    -->
+    <meta charset="UTF-8"> <!-- 网页编码设置为 UTF-8，支持中文字符 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <!-- viewport 让页面在移动端设备上按比例自适应显示 -->
+
+    <!--
+        页面标题部分：
+        {{ page.title }} 取自页面 Front Matter（如 index.html 的 title）
+        {{ site.title }} 取自 _config.yml 中的站点配置
+        最终渲染为类似 “首页 - 我的个人博客”
+    -->
     <title>{{ page.title }} - {{ site.title }}</title>
+
+    <!--
+        加载自定义的全站样式表
+        {{ '/assets/css/style.css' | relative_url }} 会根据 baseurl 自动生成正确路径
+        例如：/assets/css/style.css 或 /blog/assets/css/style.css
+    -->
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
     
-    <!-- 代码高亮 -->
+
+    <!-- ===============================
+         💡 代码高亮样式（Highlight.js）
+         =============================== -->
+    <!-- 这里使用 CDN 引入 GitHub Dark 风格的高亮主题 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
     
-    <!-- KaTeX数学公式渲染 -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        renderMathInElement(document.body, {
-            delimiters: [
-                {left: '$$', right: '$$', display: true},
-                {left: '$', right: '$', display: false},
-                {left: '\\[', right: '\\]', display: true},
-                {left: '\\(', right: '\\)', display: false}
-            ],
-            throwOnError: false,
-            strict: false
+
+    <!-- ===============================
+         🧮 KaTeX 数学公式渲染支持
+         =============================== -->
+    <!-- 加载 KaTeX 样式文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+          integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV"
+          crossorigin="anonymous">
+
+    <!-- 加载 KaTeX 主 JS 与自动渲染插件 -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+            integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8"
+            crossorigin="anonymous"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+            integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+            crossorigin="anonymous"></script>
+
+    <!-- 
+        页面加载完成后自动扫描正文中的数学公式并渲染为 KaTeX 格式。
+        支持多种数学分隔符：
+        - $$...$$ 或 \[...\] 表示行间公式
+        - $...$ 或 \(...\) 表示行内公式
+    -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},   // 行间公式
+                    {left: '$', right: '$', display: false},    // 行内公式
+                    {left: '\\[', right: '\\]', display: true},
+                    {left: '\\(', right: '\\)', display: false}
+                ],
+                throwOnError: false,   // 出错时不抛异常
+                strict: false          // 关闭严格模式，防止小错误导致渲染失败
+            });
         });
-    });
-</script>
-    
+    </script>
 </head>
+
 <body>
+    <!-- ===============================
+         🧭 页眉部分（Header / Navigation）
+         =============================== -->
     <header>
         <nav>
+            <!-- 网站标题，点击可回到首页 -->
             <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+            <!-- 网站描述（来自 _config.yml 的 site.description） -->
             <p>{{ site.description }}</p>
         </nav>
     </header>
     
+    <!-- ===============================
+         📄 主体内容区域
+         =============================== -->
     <main>
+        <!--
+            {{ content }} 是 Jekyll 的核心占位符：
+            它会被当前页面的内容替换（例如 index.html、post 页面内容）。
+            所以首页或文章页的正文都会渲染在这里。
+        -->
         {{ content }}
     </main>
     
+    <!-- ===============================
+         ⚓ 页脚区域（Footer）
+         =============================== -->
     <footer>
+        <!--
+            使用 Liquid 输出作者信息。
+            &copy; 表示版权符号（©）
+            {{ site.author.name }} 从 _config.yml 的 author.name 读取
+        -->
         <p>&copy; 2025 {{ site.author.name }}. All rights reserved.</p>
     </footer>
     
-    <!-- 代码高亮JS -->
+    <!-- ===============================
+         💡 代码高亮 JS 初始化
+         =============================== -->
+    <!-- 引入 highlight.js 主脚本（CDN 版本） -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <!-- 自动扫描页面所有 <pre><code> 块并进行语法高亮 -->
     <script>hljs.highlightAll();</script>
 </body>
 </html>
-
