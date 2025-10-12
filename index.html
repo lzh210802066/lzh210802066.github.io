@@ -6,3 +6,21 @@ layout: home
 author_profile: true
 ---
 
+---
+layout: default
+title: 首页
+---
+
+<div class="home">
+    <h2>最新文章</h2>
+    
+    <ul class="post-list">
+        {% for post in site.posts %}
+        <li>
+            <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+            <p class="post-meta">{{ post.date | date: "%Y年%m月%d日" }}</p>
+            <p>{{ post.excerpt }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
