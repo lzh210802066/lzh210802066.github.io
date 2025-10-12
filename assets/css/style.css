@@ -84,18 +84,19 @@ main {
     margin-left: 0.3rem;      /* 与标题间距 */
 }
 
-/* 列表页文章摘要 */
+
 .post-list p {
-    margin-top: 0.5rem;           /* 摘要与标题的间距 */
+    margin-top: 0.5rem;
 
     /* 多行文本截断显示两行 */
-    display: -webkit-box;          /* 创建弹性盒子 */
+    display: -webkit-box;          /* 弹性盒子 */
     -webkit-box-orient: vertical;  /* 垂直排列子元素 */
     -webkit-line-clamp: 2;         /* 限制显示两行 */
     overflow: hidden;              /* 超出部分隐藏 */
-    text-overflow: ellipsis;       /* 用省略号表示被截断内容 */
+    text-overflow: ellipsis;       /* 用省略号表示 */
+    line-height: 1.6;              /* 确保截断计算正常 */
+    max-height: calc(1.6em * 2);   /* 强制最大高度，防止兼容问题 */
 }
-
 
 
 /* 单篇文章标题 */
