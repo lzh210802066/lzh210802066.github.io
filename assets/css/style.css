@@ -154,19 +154,26 @@ em {
     color: #555;
 }
 
-/* 保证文章内容区的图片不溢出 */
-.post-content img {
-    display: block;             /* 避免行内间距问题 */
-    max-width: 100%;            /* 最大宽度不超过父容器 */
-    width: auto;                /* 保持原始比例，自动缩放 */
-    height: auto;               /* 高度自适应 */
-    margin: 1rem 0;             /* 图片上下间距 */
-    object-fit: contain;        /* 确保图片缩放时不被裁剪 */
+/* 1️⃣ 保证文章内容区不会横向溢出 */
+.post-content {
+    overflow-x: hidden;          /* 防止横向滚动条 */
+    word-wrap: break-word;       /* 防止长文字或链接撑开 */
 }
 
-/* 强制 .post-content 区域内容不要超出 main */
-.post-content {
-    overflow-x: hidden;         /* 防止子元素溢出横向滚动 */
+/* 2️⃣ 图片自适应内容区宽度 */
+.post-content img {
+    display: block;              /* 避免行内间距 */
+    max-width: 100%;             /* 最大宽度不超过父容器 */
+    width: 100%;                 /* 强制宽度随父容器缩放 */
+    height: auto;                /* 保持纵横比 */
+    margin: 1rem 0;              /* 上下间距 */
+    object-fit: contain;         /* 缩放时不裁剪图片 */
+}
+
+/* 3️⃣ 图片父容器（如 <p>）也限制宽度 */
+.post-content p {
+    max-width: 100%;             /* 防止父元素撑开 */
+    overflow: hidden;            /* 隐藏可能溢出的部分 */
 }
 
 
