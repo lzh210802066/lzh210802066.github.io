@@ -100,7 +100,7 @@
             &copy; 表示版权符号（©）
             {{ site.author.name }} 从 _config.yml 的 author.name 读取
         -->
-        <p>&copy; 2025 {{ site.author.name }}. All rights reserved.</p>
+        <p>&copy; {{ "now" | date: "%Y" }} {{ site.author.name }}. All rights reserved.</p>
     </footer>
     
     <!-- ===============================
@@ -112,3 +112,4 @@
     <script>hljs.highlightAll();</script>
 </body>
 </html>
+
