@@ -50,9 +50,8 @@ Jekyll 会在生成网站时，将此文件的内容插入到 default.html 的 {
             - {{ post.date | date: "%Y年%m月%d日" }} 使用 Liquid 的 date 过滤器格式化日期输出
               例如：2025年10月12日
             -->
-            <p class="post-meta">
-                {{ post.date | date: "%Y年%m月%d日" }}
-            </p>
+            <p class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</p>
+
 
             <!-- 
             摘要部分：
