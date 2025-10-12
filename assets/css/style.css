@@ -1,190 +1,217 @@
+/* 通用样式重置：移除默认的 margin、padding，并启用 border-box 盒模型 */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* 页面主体基础设置 */
 body {
+    /* 设置现代系统字体栈，确保跨平台视觉一致性 */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    /* 行距，使文字更易阅读 */
     line-height: 1.6;
+    /* 主体文字颜色 */
     color: #333;
+    /* 限制页面最大宽度并居中 */
     max-width: 900px;
     margin: 0 auto;
+    /* 页面四周内边距 */
     padding: 20px;
+    /* 背景颜色为浅灰色 */
     background-color: #f5f5f5;
 }
 
+/* 页眉样式 */
 header {
-    background: #2c3e50;
-    color: white;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    border-radius: 8px;
+    background: #2c3e50;      /* 深色背景 */
+    color: white;             /* 白色文字 */
+    padding: 2rem;            /* 内边距 */
+    margin-bottom: 2rem;      /* 与主内容区的间距 */
+    border-radius: 8px;       /* 圆角效果 */
 }
 
+/* 标题链接样式（header 内的 h1 a） */
 header h1 a {
-    color: white;
-    text-decoration: none;
+    color: white;             /* 保持标题为白色 */
+    text-decoration: none;    /* 去掉下划线 */
 }
 
+/* 页眉描述文字 */
 header p {
-    opacity: 0.8;
-    margin-top: 0.5rem;
+    opacity: 0.8;             /* 稍微降低不透明度，颜色更淡 */
+    margin-top: 0.5rem;       /* 与标题的间距 */
 }
 
+/* 主体区域样式 */
 main {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
+    background: white;        /* 主内容背景为白色 */
+    padding: 2rem;            /* 内边距 */
+    border-radius: 8px;       /* 圆角 */
+    /* 阴影效果，使内容卡片有立体感 */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* 文章列表 */
+/* 文章列表外层容器 */
 .post-list {
-    list-style: none;
+    list-style: none;         /* 移除默认列表圆点 */
 }
 
+/* 单篇文章条目 */
 .post-list li {
-    margin-bottom: 2rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid #eee;
+    margin-bottom: 2rem;      /* 条目之间的间距 */
+    padding-bottom: 2rem;     /* 内容下内边距 */
+    border-bottom: 1px solid #eee; /* 下边分割线 */
 }
 
+/* 每篇文章的标题样式 */
 .post-list h2 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.5rem;    /* 标题与正文的间距 */
 }
 
+/* 文章标题链接 */
 .post-list h2 a {
-    color: #2c3e50;
-    text-decoration: none;
+    color: #2c3e50;           /* 深蓝灰色 */
+    text-decoration: none;    /* 去掉下划线 */
 }
 
+/* 鼠标悬停在标题时的高亮效果 */
 .post-list h2 a:hover {
-    color: #3498db;
+    color: #3498db;           /* 亮蓝色 */
 }
 
-/* 文章内容 */
+/* 文章正文内容区域 */
 .post-content {
-    margin-top: 2rem;
+    margin-top: 2rem;         /* 与标题区分开一点 */
 }
 
+/* 各级标题样式统一控制 */
 .post-content h1,
 .post-content h2,
 .post-content h3 {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    color: #2c3e50;
+    margin-top: 2rem;         /* 上方间距 */
+    margin-bottom: 1rem;      /* 下方间距 */
+    color: #2c3e50;           /* 深色标题 */
 }
 
+/* 正文段落间距 */
 .post-content p {
     margin-bottom: 1rem;
 }
 
-/* 粗体和斜体 */
+/* 粗体文字样式 */
 strong {
-    font-weight: 700;
-    color: #2c3e50;
+    font-weight: 700;         /* 加粗 */
+    color: #2c3e50;           /* 深色强调 */
 }
 
+/* 斜体文字样式 */
 em {
-    font-style: italic;
-    color: #555;
+    font-style: italic;       /* 倾斜 */
+    color: #555;              /* 稍浅的灰色 */
 }
 
-/* 代码块 */
+/* 行内代码块样式（例如 <code> 片段） */
 code {
-    background: #f4f4f4;
-    padding: 2px 6px;
-    border-radius: 3px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 0.9em;
-    color: #e74c3c;
+    background: #f4f4f4;      /* 灰色背景 */
+    padding: 2px 6px;         /* 内边距 */
+    border-radius: 3px;       /* 圆角 */
+    font-family: 'Courier New', Courier, monospace; /* 等宽字体 */
+    font-size: 0.9em;         /* 稍微缩小一点 */
+    color: #e74c3c;           /* 红色字体 */
 }
 
+/* 多行代码块样式（<pre><code>...</code></pre>） */
 pre {
-    background: #282c34;
+    background: #282c34;      /* 深色背景（仿 VS Code 风格） */
     padding: 1rem;
     border-radius: 5px;
-    overflow-x: auto;
-    margin: 1rem 0;
+    overflow-x: auto;         /* 横向滚动（防止长代码溢出） */
+    margin: 1rem 0;           /* 上下间距 */
 }
 
+/* 代码块内部文字颜色 */
 pre code {
-    background: none;
-    color: #abb2bf;
+    background: none;         /* 去掉背景（继承 pre 的背景） */
+    color: #abb2bf;           /* 浅灰文字 */
     padding: 0;
 }
 
-/* 数学公式 - KaTeX样式 */
+/* 数学公式样式（KaTeX） */
 .katex {
-    font-size: 1.1em;
+    font-size: 1.1em;         /* 稍大一些，让公式更清晰 */
 }
 
+/* 行间公式区域（display 模式） */
 .katex-display {
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 1rem 0;
+    overflow-x: auto;         /* 横向滚动防止公式太宽 */
+    overflow-y: hidden;       /* 禁止纵向滚动 */
+    padding: 1rem 0;          /* 上下留白 */
 }
 
-/* 行内公式不换行 */
+/* 行内公式不允许换行 */
 .katex-inline {
     white-space: nowrap;
 }
 
-/* 引用 */
+/* 引用块样式 */
 blockquote {
-    border-left: 4px solid #3498db;
-    padding-left: 1rem;
-    margin: 1rem 0;
-    color: #666;
-    font-style: italic;
+    border-left: 4px solid #3498db; /* 左边蓝色竖线 */
+    padding-left: 1rem;             /* 内容与线条间距 */
+    margin: 1rem 0;                 /* 上下间距 */
+    color: #666;                    /* 字体颜色偏灰 */
+    font-style: italic;             /* 斜体引用 */
 }
 
-/* 链接 */
+/* 超链接样式 */
 a {
-    color: #3498db;
-    text-decoration: none;
+    color: #3498db;           /* 蓝色链接 */
+    text-decoration: none;    /* 默认无下划线 */
 }
 
+/* 鼠标悬停时增加下划线 */
 a:hover {
     text-decoration: underline;
 }
 
-/* 页脚 */
+/* 页脚样式 */
 footer {
-    text-align: center;
-    margin-top: 2rem;
-    padding: 1rem;
-    color: #666;
+    text-align: center;       /* 居中对齐 */
+    margin-top: 2rem;         /* 与内容区分开 */
+    padding: 1rem;            /* 内边距 */
+    color: #666;              /* 灰色文字 */
 }
 
-/* 移动端适配 */
+/* ========== 响应式设计（移动端适配） ========== */
 @media (max-width: 768px) {
+    /* 手机和平板下的全局字体和布局调整 */
     body {
-        padding: 10px;
-        font-size: 16px;
+        padding: 10px;        /* 减少页面内边距 */
+        font-size: 16px;      /* 提高文字可读性 */
     }
     
+    /* 页眉内边距缩小 */
     header {
         padding: 1.5rem 1rem;
     }
     
+    /* 主内容区内边距减少 */
     main {
         padding: 1rem;
     }
     
-    /* ⭐ 新增这些 */
+    /* ⭐ 针对移动端公式与代码的特殊优化 */
     .katex {
-        font-size: 1em;
+        font-size: 1em;       /* 稍微缩小公式字体 */
     }
     
     .katex-display {
-        font-size: 0.95em;
+        font-size: 0.95em;    /* 行间公式略小一点 */
     }
     
     pre {
-        font-size: 0.85em;
+        font-size: 0.85em;    /* 代码字体更小以防换行 */
     }
     
-    /* 其他样式... */
+    /* 这里可继续添加其他移动端调整 */
 }
