@@ -115,14 +115,20 @@ pre code {
     padding: 0;
 }
 
-/* 数学公式 */
-.MathJax {
-    font-size: 1.1em !important;
+/* 数学公式 - KaTeX样式 */
+.katex {
+    font-size: 1.1em;
 }
 
-mjx-container {
+.katex-display {
     overflow-x: auto;
     overflow-y: hidden;
+    padding: 1rem 0;
+}
+
+/* 行内公式不换行 */
+.katex-inline {
+    white-space: nowrap;
 }
 
 /* 引用 */
