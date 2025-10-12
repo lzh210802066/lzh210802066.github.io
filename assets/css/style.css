@@ -86,8 +86,16 @@ main {
 
 /* 列表页文章摘要 */
 .post-list p {
-    margin-top: 0.5rem;       /* 摘要与标题的间距 */
+    margin-top: 0.5rem;           /* 摘要与标题的间距 */
+
+    /* 多行文本截断显示两行 */
+    display: -webkit-box;          /* 创建弹性盒子 */
+    -webkit-box-orient: vertical;  /* 垂直排列子元素 */
+    -webkit-line-clamp: 2;         /* 限制显示两行 */
+    overflow: hidden;              /* 超出部分隐藏 */
+    text-overflow: ellipsis;       /* 用省略号表示被截断内容 */
 }
+
 
 
 /* 单篇文章标题 */
@@ -145,199 +153,6 @@ em {
     color: #555;
 }
 
-/* 行内代码块样式 */
-code {
-    background: #f4f4f4;
-    padding: 2px 6px;
-    border-radius: 3px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 0.9em;
-    color: #e74c3c;
-}
-
-/* 多行代码块样式 */
-pre {
-    background: #282c34;
-    padding: 1rem;
-    border-radius: 5px;
-    overflow-x: auto;
-    margin: 1rem 0;
-}
-
-pre code {
-    background: none;
-    color: #abb2bf;
-    padding: 0;
-}
-
-/* 数学公式样式（KaTeX） */
-.katex {
-    font-size: 1.1em;
-}
-
-.katex-display {
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 1rem 0;
-}
-
-.katex-inline {
-    white-space: nowrap;
-}
-
-/* 引用块样式 */
-blockquote {
-    border-left: 4px solid #3498db;
-    padding-left: 1rem;
-    margin: 1rem 0;
-    color: #666;
-    font-style: italic;
-}
-
-/* 超链接样式 */
-a {
-    color: #3498db;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* 页脚样式 */
-footer {
-    text-align: center;
-    margin-top: 2rem;
-    padding: 1rem;
-    color: #666;
-}
-
-/* ===============================
-   行内代码块样式
-   说明：用于 <code> 标签内嵌于段落的代码
-   背景浅灰色，与博客整体风格统一
-=============================== */
-code {
-    background: #f4f4f4;           /* 浅灰背景 */
-    padding: 2px 6px;              /* 上下 2px，左右 6px 内边距 */
-    border-radius: 3px;            /* 圆角 3px */
-    font-family: 'Courier New', Courier, monospace; /* 等宽字体 */
-    font-size: 0.9em;              /* 字号略小于正文 */
-    color: #e74c3c;                /* 红色强调，与博客风格搭配 */
-}
-
-/* ===============================
-   多行代码块样式
-   说明：用于 <pre><code> 结构显示大段代码
-   背景深色，突出代码内容
-=============================== */
-pre {
-    background: #282c34;            /* 深色背景，和 highlight.js 暗色主题一致 */
-    padding: 1rem;                  /* 内边距 */
-    border-radius: 5px;             /* 圆角 */
-    overflow-x: auto;               /* 超长代码可横向滚动 */
-    margin: 1rem 0;                 /* 上下间距 */
-    color: #abb2bf;                 /* 默认文字颜色 */
-    font-family: 'Courier New', Courier, monospace; /* 等宽字体 */
-    font-size: 1rem;                /* 正文字号 */
-}
-
-/* ===============================
-   highlight.js 核心颜色风格覆盖
-   说明：覆盖默认主题颜色，使代码高亮风格与博客统一
-=============================== */
-
-/* 注释或引用 */
-.hljs-comment,
-.hljs-quote {
-    color: #6a737d;                 /* 灰色 */
-    font-style: italic;             /* 斜体 */
-}
-
-/* 关键字、标签选择器、替换标识 */
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-subst {
-    color: #d73a49;                 /* 红色 */
-    font-weight: 700;               /* 加粗 */
-}
-
-/* 数字、字面量、标签属性 */
-.hljs-literal,
-.hljs-number,
-.hljs-tag .hljs-attr {
-    color: #005cc5;                 /* 蓝色 */
-}
-
-/* 字符串、文档标签 */
-.hljs-string,
-.hljs-doctag {
-    color: #032f62;                 /* 深蓝色 */
-}
-
-/* 函数、类名、章节标题 */
-.hljs-title,
-.hljs-section,
-.hljs-name {
-    color: #6f42c1;                 /* 紫色 */
-    font-weight: 700;               /* 加粗 */
-}
-
-/* 变量、模板变量、属性、选择器伪类 */
-.hljs-variable,
-.hljs-template-variable,
-.hljs-attr,
-.hljs-selector-attr,
-.hljs-selector-pseudo {
-    color: #e36209;                 /* 橙色 */
-}
-
-/* 内置函数、内置名称 */
-.hljs-built_in,
-.hljs-builtin-name {
-    color: #005cc5;                 /* 蓝色 */
-}
-
-/* 元信息 */
-.hljs-meta {
-    color: #b31d28;                 /* 深红色 */
-    font-weight: 700;               /* 加粗 */
-}
-
-/* 删除内容背景 */
-.hljs-deletion {
-    background-color: #ffeef0;
-}
-
-/* 添加内容背景 */
-.hljs-addition {
-    background-color: #f0fff4;
-}
-
-/* ===============================
-   多行代码块内 code 样式调整
-   说明：去掉 pre 内部 code 默认背景和 padding
-=============================== */
-pre code {
-    background: none;                /* 去掉默认背景 */
-    padding: 0;                      /* 去掉内边距 */
-    color: inherit;                  /* 继承 pre 颜色 */
-}
-
-/* ===============================
-   移动端适配
-   说明：缩小代码块字体和内边距，防止溢出
-=============================== */
-@media (max-width: 768px) {
-    pre {
-        font-size: 0.85em;           /* 字号缩小 */
-        padding: 0.8rem;             /* 内边距缩小 */
-    }
-
-    code {
-        font-size: 0.85em;           /* 行内代码字体缩小 */
-    }
-}
 
 
 /* ========== 响应式设计（移动端适配） ========== */
