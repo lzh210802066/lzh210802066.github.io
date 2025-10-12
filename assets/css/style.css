@@ -154,14 +154,21 @@ em {
     color: #555;
 }
 
-/* Markdown 内容图片自适应，防止溢出白色内容框 */
+/* 保证文章内容区的图片不溢出 */
 .post-content img {
-    max-width: 100%;       /* 最大宽度为父容器宽度 */
-    height: auto;          /* 高度自适应，保持纵横比 */
-    display: block;        /* 避免行内间距影响 */
-    margin: 1rem 0;        /* 图片上下间距，可根据需要调整 */
-    border-radius: 5px;    /* 可选，和 main 内容圆角统一 */
+    display: block;             /* 避免行内间距问题 */
+    max-width: 100%;            /* 最大宽度不超过父容器 */
+    width: auto;                /* 保持原始比例，自动缩放 */
+    height: auto;               /* 高度自适应 */
+    margin: 1rem 0;             /* 图片上下间距 */
+    object-fit: contain;        /* 确保图片缩放时不被裁剪 */
 }
+
+/* 强制 .post-content 区域内容不要超出 main */
+.post-content {
+    overflow-x: hidden;         /* 防止子元素溢出横向滚动 */
+}
+
 
 
 /* ========== 响应式设计（移动端适配） ========== */
