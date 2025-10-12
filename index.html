@@ -1,24 +1,43 @@
 ---
-# You don't need to edit this file, it's empty on purpose.
-# Edit theme's home layout instead if you wanna make some changes
-# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-layout: home
-author_profile: true
+layout: default       # 指定使用的布局模板（一般是 _layouts/default.html）
+title: 首页           # 设置当前页面的标题变量（可用于 <title> 或 header 显示）
 ---
 
----
-layout: default
-title: 首页
----
+<!--
+这部分是 Jekyll 的 Liquid 模板语法。三条短横线之间的部分称为“前置数据块（Front Matter）”，
+用于告诉 Jekyll 这个页面要使用哪个布局，以及页面的一些元数据。
+-->
 
+<!-- 整个首页内容块 -->
 <div class="home">
+
+    <!-- 首页的二级标题 -->
     <h2>最新文章</h2>
     
+    <!-- 文章列表容器 -->
     <ul class="post-list">
+        
+        {%- comment -%}
+        这里使用 Liquid 模板语言的 for 循环：
+        site.posts 是 Jekyll 自动生成的所有文章的集合（按时间倒序排列）。
+        每一篇文章对象 post 包含：
+          - post.title  ：文章标题
+          - post.url    ：文章链接
+          - post.date   ：发布日期
+          - post.excerpt：自动生成的摘要（如果 front matter 中未定义 excerpt）
+        {%- endcomment -%}
+
         {% for post in site.posts %}
         <li>
+            <!-- 每篇文章标题 -->
+            <!-- 使用 {{ post.url | relative_url }} 确保生成相对路径，防止部署路径问题 -->
             <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+
+            <!-- 显示文章发布日期 -->
+            <!-- | date 过滤器用于格式化日期，例如输出为“2025年10月12日” -->
             <p class="post-meta">{{ post.date | date: "%Y年%m月%d日" }}</p>
+
+            <!-- 文章摘要 -->
             <p>{{ post.excerpt }}</p>
         </li>
         {% endfor %}
