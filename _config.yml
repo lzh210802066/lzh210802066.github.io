@@ -25,10 +25,10 @@ markdown: kramdown
 
 # ============= 主题设置（这里是唯一的修改） =============
 # 删除或注释掉这行：
-# theme: "jekyll-theme-minimal"
+theme: "jekyll-theme-minimal"
 
 # 改用 remote_theme（GitHub Pages 支持）
-remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+#remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 # ======================================================
 
 # 输出设置
