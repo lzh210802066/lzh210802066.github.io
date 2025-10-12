@@ -89,20 +89,27 @@ main {
     margin-top: 0.5rem;       /* 摘要与标题的间距 */
 }
 
-/* ========== 单篇文章页面样式 ========== */
+
+/* 单篇文章标题 */
 .post-header .post-title {
-    font-size: 2rem;          /* 标题适中大小 */
-    font-weight: 700;          /* 加粗 */
-    line-height: 1.3;         /* 行高 */
-    display: flex;            /* 标题与日期同行 */
-    align-items: baseline;    /* 日期对齐底部 */
-    gap: 0.5rem;              /* 标题和日期间距 */
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    display: flex;          /* 保持标题与日期同行 */
+    align-items: baseline;  /* 日期对齐底部 */
+    gap: 0.5rem;            /* 标题和日期间距 */
+    background: none;       /* 移除背景 */
+    border: none;           /* 移除边框 */
+    padding: 0;             /* 移除多余内边距 */
 }
 
 /* 单篇文章标题后的日期 */
 .post-header .post-title .post-date {
-    font-size: 0.65em;        /* 日期比标题小 */
-    color: #999;              /* 浅灰色 */
+    font-size: 0.65em;
+    color: #999;
+    background: none;       /* 移除背景 */
+    border: none;           /* 移除边框 */
+    padding: 0;             /* 移除多余内边距 */
 }
 
 /* 单篇文章正文内容 */
