@@ -1,79 +1,153 @@
-/* ===== 全局样式 ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  background: #e0f7fa;
-  color: #333;
-  margin: 0;
-  line-height: 1.6;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
 }
 
-/* ===== 页头 ===== */
 header {
-  background: #1565c0;
-  color: #fff;
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+    background: #2c3e50;
+    color: white;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
 }
 
-header a {
-  color: #fff;
-  margin-right: 1rem;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s, transform 0.2s;
+header h1 a {
+    color: white;
+    text-decoration: none;
 }
 
-header a:hover {
-  color: #ffd700;
-  transform: translateY(-2px);
+header p {
+    opacity: 0.8;
+    margin-top: 0.5rem;
 }
 
-/* ===== 容器与内容 ===== */
-.container {
-  max-width: 1000px;
-  margin: 20px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+main {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* ===== 文章 ===== */
-.post h1 {
-  color: #1565c0;
+/* 文章列表 */
+.post-list {
+    list-style: none;
 }
 
-.date {
-  color: #777;
-  font-size: 0.9rem;
+.post-list li {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eee;
 }
 
-/* ===== 页脚 ===== */
+.post-list h2 {
+    margin-bottom: 0.5rem;
+}
+
+.post-list h2 a {
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+.post-list h2 a:hover {
+    color: #3498db;
+}
+
+/* 文章内容 */
+.post-content {
+    margin-top: 2rem;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.post-content p {
+    margin-bottom: 1rem;
+}
+
+/* 粗体和斜体 */
+strong {
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+em {
+    font-style: italic;
+    color: #555;
+}
+
+/* 代码块 */
+code {
+    background: #f4f4f4;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+    color: #e74c3c;
+}
+
+pre {
+    background: #282c34;
+    padding: 1rem;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+pre code {
+    background: none;
+    color: #abb2bf;
+    padding: 0;
+}
+
+/* 数学公式 */
+.MathJax {
+    font-size: 1.1em !important;
+}
+
+mjx-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+/* 引用 */
+blockquote {
+    border-left: 4px solid #3498db;
+    padding-left: 1rem;
+    margin: 1rem 0;
+    color: #666;
+    font-style: italic;
+}
+
+/* 链接 */
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* 页脚 */
 footer {
-  text-align: center;
-  padding: 15px;
-  background: #1565c0;
-  color: #fff;
-  margin-top: 40px;
-  border-top: 3px solid #ffd700;
-}
-
-/* ===== 响应式 ===== */
-@media (max-width: 768px) {
-  .container {
-    margin: 10px;
-    padding: 15px;
-  }
-
-  header {
-    flex-direction: column;
     text-align: center;
-  }
-
-  header a {
-    margin: 0.5rem;
-  }
+    margin-top: 2rem;
+    padding: 1rem;
+    color: #666;
 }
