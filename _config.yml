@@ -2,7 +2,7 @@
 # 🌐 网站基本设置（Site Settings）
 # =====================================
 
-title: 我的个人博客         # 网站标题，会显示在浏览器标签栏或页眉中
+title: docs         # 网站标题，会显示在浏览器标签栏或页眉中
 description: 记录技术与生活  # 网站描述，常用于 SEO 和 meta 标签
 
 # baseurl 通常为空字符串 ""（如果部署在根目录）
@@ -11,7 +11,7 @@ baseurl: ""
 
 # 你的站点域名或 GitHub Pages 地址
 # 如果你的网站托管在 GitHub Pages，上面写上你的用户名仓库地址
-url: "https://你的用户名.github.io"  
+url: "https://qinhan8013.github.io"  
 
 
 # =====================================
