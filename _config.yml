@@ -1,29 +1,57 @@
-# 网站设置
-title: 我的个人博客
-description: 记录技术与生活
-baseurl: ""
-url: "https://你的用户名.github.io"
+# =====================================
+# 🌐 网站基本设置（Site Settings）
+# =====================================
 
-# 作者信息
+title: 我的个人博客         # 网站标题，会显示在浏览器标签栏或页眉中
+description: 记录技术与生活  # 网站描述，常用于 SEO 和 meta 标签
+
+# baseurl 通常为空字符串 ""（如果部署在根目录）
+# 若 GitHub Pages 部署在子路径下，如 https://user.github.io/blog，则 baseurl: "/blog"
+baseurl: ""                  
+
+# 你的站点域名或 GitHub Pages 地址
+# 如果你的网站托管在 GitHub Pages，上面写上你的用户名仓库地址
+url: "https://你的用户名.github.io"  
+
+
+# =====================================
+# 👤 作者信息（Author Information）
+# =====================================
+
 author:
-  name: 你的名字
-  email: your-email@example.com
+  name: 你的名字                 # 作者名字，会在文章页或页脚显示
+  email: your-email@example.com  # 邮箱，可用于联系或 SEO 作者标识
 
-# 构建设置
+
+# =====================================
+# ⚙️ 构建与 Markdown 解析设置（Build Settings）
+# =====================================
+
+# 告诉 Jekyll 使用哪个 Markdown 引擎来解析 .md 文件
 markdown: kramdown
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
-  math_engine: mathjax
-  hard_wrap: false
-  
-# 插件
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
 
-# 排除文件
+# 详细的 kramdown 设置
+kramdown:
+  input: GFM                    # 启用 GitHub Flavored Markdown（支持表格、任务列表等）
+  syntax_highlighter: rouge     # 使用 rouge 高亮代码块（Jekyll 内置）
+  math_engine: mathjax          # 启用 MathJax 渲染数学公式（支持 $...$ 与 $$...$$）
+  hard_wrap: false              # 控制换行行为（false 表示普通换行不自动加 <br>）
+
+
+# =====================================
+# 🔌 插件设置（Plugins）
+# =====================================
+
+plugins:
+  - jekyll-feed                 # 自动生成 RSS 订阅 feed.xml
+  - jekyll-seo-tag              # 自动生成 SEO 相关 meta 标签（如标题、描述、Open Graph）
+
+
+# =====================================
+# 🚫 构建时排除的文件（Exclude Files）
+# =====================================
+
 exclude:
-  - Gemfile
-  - Gemfile.lock
-  - README.md
+  - Gemfile                     # Ruby 项目依赖文件（不需发布到网站）
+  - Gemfile.lock                # Gemfile 的锁定版本文件
+  - README.md                   # 说明文件，不参与网站构建
