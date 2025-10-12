@@ -35,7 +35,7 @@ title: 首页           # 设置当前页面的标题变量（可用于 <title> 
 
             <!-- 显示文章发布日期 -->
             <!-- | date 过滤器用于格式化日期，例如输出为“2025年10月12日” -->
-            <p class="post-meta">{{ post.date | date: "%Y年%m月%d日" }}</p>
+            <p class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</p>
 
             <!-- 文章摘要 -->
             <p>{{ post.excerpt }}</p>
