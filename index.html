@@ -31,38 +31,32 @@ Jekyll 会在生成网站时，将此文件的内容插入到 default.html 的 {
         
         <!-- 每篇文章对应一个 <li> 条目，对应 CSS 中 .post-list li 样式（有底部分割线与内边距） -->
         <li>
-
             <!-- 
-            标题部分：
-            - <h2> 对应文章标题
-            - <a> 是链接，指向该文章的实际页面
-            - {{ post.url | relative_url }} 可确保在本地预览和线上部署路径都能正确链接
+            标题与日期部分：
+            - <h2> 包含文章标题和发布日期
+            - <a> 指向文章实际页面
+            - {{ post.url | relative_url }} 确保本地预览和线上部署路径正确
+            - <small class="post-date"> 用于显示日期，样式可通过 CSS 控制
             -->
             <h2>
                 <a href="{{ post.url | relative_url }}">
-                    {{ post.title }}    <!-- 输出文章标题 -->
+                    {{ post.title }}  <!-- 输出文章标题 -->
                 </a>
+                <small class="post-date">
+                    · {{ post.date | date: "%Y-%m-%d" }}  <!-- 日期显示在标题后 -->
+                </small>
             </h2>
-
-            <!-- 
-            日期部分：
-            - 使用 <p class="post-meta"> 设置元信息样式（灰色文字、较小字号）
-            - {{ post.date | date: "%Y年%m月%d日" }} 使用 Liquid 的 date 过滤器格式化日期输出
-              例如：2025年10月12日
-            -->
-            <p class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</p>
-
-
+        
             <!-- 
             摘要部分：
             - {{ post.excerpt }} 输出文章摘要
-            - 如果文章的 Markdown 文件中没有显式设置 excerpt，
-              Jekyll 会自动截取文章开头几行生成。
+            - 如果 Markdown 文件中没有显式设置 excerpt，Jekyll 会自动截取文章开头生成
             -->
             <p>
                 {{ post.excerpt }}
             </p>
         </li>
+
 
         <!-- 
         for 循环结束：
