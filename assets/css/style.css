@@ -157,3 +157,34 @@ footer {
     padding: 1rem;
     color: #666;
 }
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+        font-size: 16px;
+    }
+    
+    header {
+        padding: 1.5rem 1rem;
+    }
+    
+    main {
+        padding: 1rem;
+    }
+    
+    /* ⭐ 新增这些 */
+    .katex {
+        font-size: 1em;
+    }
+    
+    .katex-display {
+        font-size: 0.95em;
+    }
+    
+    pre {
+        font-size: 0.85em;
+    }
+    
+    /* 其他样式... */
+}
