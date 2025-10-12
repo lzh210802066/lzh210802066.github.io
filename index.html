@@ -1,88 +1,76 @@
 ---
-layout: default       # 指定使用的布局模板文件（通常位于 _layouts/default.html）
-title: 首页           # 定义页面标题变量，可在 <title> 或 header 中引用
+layout: default        # 告诉 Jekyll 本页面使用 _layouts/default.html 作为布局模板
+title: 首页            # 定义当前页面标题变量，可在 default.html 中通过 {{ page.title }} 调用
 ---
 
 <!--
-==============================
-📘 页面说明
-==============================
-这部分是 Jekyll 页面文件的基本结构。
-三条短横线之间的区域称为「前置数据块（Front Matter）」，
-用于告诉 Jekyll 当前页面使用哪个布局（layout）以及定义页面变量（如 title）。
+Jekyll 会在生成网站时，将此文件的内容插入到 default.html 的 {{ content }} 位置。
+因此，这个文件只负责定义首页的主要内容部分。
 -->
 
-<!-- ============================== -->
-<!-- 🌐 首页主体内容区域 -->
-<!-- ============================== -->
+<!-- “home” 是首页内容的主容器，对应 CSS 中的 .home 样式（控制整体排版与间距） -->
 <div class="home">
-
-  <!-- 首页区块标题 -->
-  <h2>最新文章</h2>
-  
-  <!-- 文章列表容器 -->
-  <ul class="post-list">
     
-    {%- comment -%}
-    ==============================
-    🔁 Liquid 模板循环说明
-    ==============================
-    这里使用 Liquid 模板语言的 for 循环来遍历所有文章。
-    site.posts 是 Jekyll 自动生成的文章集合，按时间倒序排列（最新的文章在最前）。
-
-    每个 post 对象常用属性如下：
-      - post.title        → 文章标题
-      - post.url          → 文章链接
-      - post.date         → 文章发布时间
-      - post.excerpt      → 文章摘要（自动截取或 front matter 自定义）
-      - post.tags         → 标签列表（可选）
-      - post.categories   → 分类列表（可选）
-
-    其他可用变量：
-      - forloop.index     → 当前循环索引（从 1 开始）
-      - forloop.first     → 是否为第一篇（true/false）
-      - forloop.last      → 是否为最后一篇
-      - limit / offset    → 限制文章数量，例如：
-                            {% for post in site.posts limit:5 %}
-    {%- endcomment -%}
-
-    {% for post in site.posts %}
-      <li>
-        <!--
-        ==============================
-        📰 每篇文章的标题与链接
-        ==============================
-        使用 {{ post.url | relative_url }} 生成相对路径，
-        确保在不同 baseurl（如 GitHub Pages）下链接都能正常工作。
+    <!-- 二级标题，显示“最新文章”，对应 CSS 的 h2 样式（一般字体较大且间距适中） -->
+    <h2>最新文章</h2>
+    
+    <!-- 文章列表容器，使用 <ul> 表示无序列表，配合 CSS 中的 .post-list 样式 -->
+    <ul class="post-list">
+        
+        <!-- 
+        使用 Liquid 模板语言的 for 循环：
+        site.posts 是 Jekyll 自动生成的所有文章数组（按时间倒序排列）。
+        每篇文章对象 post 包含：
+          - post.title  ：标题
+          - post.url    ：文章路径
+          - post.date   ：发布日期
+          - post.excerpt：文章摘要
+        Jekyll 会自动从 _posts 目录读取 .md 文件并生成这些属性。
         -->
-        <h2 class="post-title">
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-          <\!-- 在标题后显示日期（简洁风格） -->
-          <small class="post-date"> · {{ post.date | date: "%Y-%m-%d" }}</small>
-        </h2>
+        {% for post in site.posts %}
+        
+        <!-- 每篇文章对应一个 <li> 条目，对应 CSS 中 .post-list li 样式（有底部分割线与内边距） -->
+        <li>
 
-        <!--
-        ==============================
-        🕓 日期格式说明
-        ==============================
-        使用 Liquid 的 date 过滤器来格式化时间。
-        常见格式示例：
-          "%Y-%m-%d"      → 2025-10-12
-          "%Y年%m月%d日"  → 2025年10月12日
-          "%b %d, %Y"     → Oct 12, 2025
-        -->
+            <!-- 
+            标题部分：
+            - <h2> 对应文章标题
+            - <a> 是链接，指向该文章的实际页面
+            - {{ post.url | relative_url }} 可确保在本地预览和线上部署路径都能正确链接
+            -->
+            <h2>
+                <a href="{{ post.url | relative_url }}">
+                    {{ post.title }}    <!-- 输出文章标题 -->
+                </a>
+            </h2>
 
-        <!--
-        ==============================
-        📄 文章摘要部分
-        ==============================
-        Jekyll 默认会根据第一段文本自动生成摘要。
-        若想手动指定摘要，可在 Markdown 文件中添加：
-          excerpt_separator: "<!-- more -->"
-        在 "<!-- more -->" 之前的内容会作为摘要显示。
+            <!-- 
+            日期部分：
+            - 使用 <p class="post-meta"> 设置元信息样式（灰色文字、较小字号）
+            - {{ post.date | date: "%Y年%m月%d日" }} 使用 Liquid 的 date 过滤器格式化日期输出
+              例如：2025年10月12日
+            -->
+            <p class="post-meta">
+                {{ post.date | date: "%Y年%m月%d日" }}
+            </p>
+
+            <!-- 
+            摘要部分：
+            - {{ post.excerpt }} 输出文章摘要
+            - 如果文章的 Markdown 文件中没有显式设置 excerpt，
+              Jekyll 会自动截取文章开头几行生成。
+            -->
+            <p>
+                {{ post.excerpt }}
+            </p>
+        </li>
+
+        <!-- 
+        for 循环结束：
+        每次循环生成一篇文章的标题、日期和摘要。
+        Jekyll 渲染后，这里会成为一个完整的文章列表。
         -->
-        <p>{{ post.excerpt }}</p>
-      </li>
-    {% endfor %}
-  </ul>
+        {% endfor %}
+    </ul>
 </div>
+
