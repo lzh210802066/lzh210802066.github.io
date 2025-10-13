@@ -198,6 +198,146 @@ em {
     word-break: break-word;
 }
 
+/* ========== 首页文章列表样式 ========== */
+.post-list {
+    list-style: none;
+    /* 移除默认列表圆点 */
+}
+
+.post-list li {
+    margin-bottom: 2rem;
+    /* 条目之间的间距 */
+    padding-bottom: 2rem;
+    /* 内容下内边距 */
+    border-bottom: 1px solid #eee;
+    /* 下边分割线 */
+
+    /* 🔥 新增：限制整个文章项的最大高度 */
+    max-height: 200px;
+    /* 根据需要调整高度 */
+    overflow: hidden;
+    /* 隐藏溢出内容 */
+}
+
+/* 列表页标题 */
+.post-list h2 {
+    margin-bottom: 0.5rem;
+    /* 标题与正文的间距 */
+}
+
+.post-list h2 a {
+    color: #2c3e50;
+    /* 深蓝灰色 */
+    text-decoration: none;
+    /* 去掉下划线 */
+}
+
+.post-list h2 a:hover {
+    color: #3498db;
+    /* 高亮效果 */
+}
+
+/* 列表页标题后的小日期 */
+.post-list h2 small.post-date {
+    font-size: 0.7em;
+    /* 比标题小 */
+    color: #999;
+    /* 浅灰色 */
+    margin-left: 0.3rem;
+    /* 与标题间距 */
+}
+
+/* 🔥 新增：限制文章列表中的所有内容（不仅仅是 p 标签） */
+.post-list .content,
+.post-list .post-content {
+    max-height: 4.8em;
+    /* 约3行的高度（基于 line-height: 1.6） */
+    overflow: hidden;
+    line-height: 1.6;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    /* 限制为 3 行 */
+    text-overflow: ellipsis;
+    word-break: break-word;
+}
+
+/* 首页文章摘要：限制为两行并显示省略号 */
+.post-list p {
+    margin-top: 0.5rem;
+    line-height: 1.6;
+
+    display: -webkit-box;
+    /* 建立多行弹性盒子 */
+    -webkit-box-orient: vertical;
+    /* 垂直排列内容 */
+    -webkit-line-clamp: 3;
+    /* 限制为 3 行 */
+    overflow: hidden;
+    /* 超出隐藏 */
+    text-overflow: ellipsis;
+    /* 添加省略号（部分浏览器兼容） */
+    word-break: break-word;
+    /* 防止长单词溢出 */
+    max-height: 4.8em;
+    /* 3行 × 1.6行高 = 4.8em */
+}
+
+/* 🔥 隐藏 excerpt 中的所有非文本元素 */
+.post-list p * {
+    display: inline;
+    /* 将所有标签转为行内元素 */
+    font-size: inherit;
+    /* 继承父元素字号 */
+    font-weight: inherit;
+    /* 继承父元素字重 */
+    margin: 0;
+    /* 移除所有边距 */
+    padding: 0;
+    /* 移除所有内边距 */
+}
+
+/* 完全隐藏 excerpt 中不适合显示的元素 */
+.post-list p h1,
+.post-list p h2,
+.post-list p h3,
+.post-list p h4,
+.post-list p ul,
+.post-list p ol,
+.post-list p pre,
+.post-list p code {
+    display: none;
+}
+
+/* 🔥 新增：确保列表项中的所有子元素都不会溢出 */
+.post-list li * {
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* 🔥 新增：隐藏列表项中的标题、有序列表等 */
+.post-list .content h1,
+.post-list .content h2,
+.post-list .content h3,
+.post-list .content h4,
+.post-list .content ul,
+.post-list .content ol {
+    display: none;
+    /* 在首页预览中隐藏这些元素 */
+}
+
+/* 或者使用这个方案：只显示前几行文字 */
+.post-list .post-excerpt {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.6;
+    max-height: 4.8em;
+}
 
 /* ========== 响应式设计（移动端适配） ========== */
 @media (max-width: 768px) {
