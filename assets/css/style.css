@@ -84,16 +84,19 @@ main {
     margin-left: 0.3rem;      /* 与标题间距 */
 }
 
-/* 首页文章摘要截断两行 */
+
+
+/* 首页文章摘要：限制为两行并显示省略号 */
 .post-list p {
     margin-top: 0.5rem;
+    line-height: 1.6;
 
-    display: block;              /* 确保是块级元素 */
-    line-height: 1.6;            /* 行高，计算高度用 */
-    max-height: 3.2em;           /* 2行 = 1.6 * 2 */
-    overflow: hidden;            /* 超出部分隐藏 */
-    text-overflow: ellipsis;     /* 显示省略号 */
-    word-break: break-word;      /* 避免长单词撑开 */
+    display: -webkit-box;           /* 建立多行弹性盒子 */
+    -webkit-box-orient: vertical;   /* 垂直排列内容 */
+    -webkit-line-clamp: 2;          /* 限制为 2 行 */
+    overflow: hidden;               /* 超出隐藏 */
+    text-overflow: ellipsis;        /* 添加省略号（部分浏览器兼容） */
+    word-break: break-word;         /* 防止长单词溢出 */
 }
 
 
