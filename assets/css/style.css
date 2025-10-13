@@ -180,6 +180,24 @@ em {
 }
 
 
+/* 防止首页文章内容溢出 */
+.post-content,
+.content {
+    max-width: 100%;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+.post-content img,
+.post-content table,
+.post-content pre,
+.post-content code {
+    max-width: 100%;
+    overflow-x: auto;
+    word-break: break-word;
+}
+
 
 /* ========== 响应式设计（移动端适配） ========== */
 @media (max-width: 768px) {
