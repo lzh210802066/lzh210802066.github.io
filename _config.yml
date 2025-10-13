@@ -2,26 +2,24 @@
 # 🌐 网站基本设置（Site Settings）
 # =====================================
 
-title: Docs         # 网站标题，会显示在浏览器标签栏或页眉中
-description: 记录技术与生活  # 网站描述，常用于 SEO 和 meta 标签
+title: Docs # 网站标题，会显示在浏览器标签栏或页眉中
+description: 记录技术与生活 # 网站描述，常用于 SEO 和 meta 标签
 
 # baseurl 通常为空字符串 ""（如果部署在根目录）
 # 若 GitHub Pages 部署在子路径下，如 https://user.github.io/blog，则 baseurl: "/blog"
-baseurl: ""                  
+baseurl: ""
 
 # 你的站点域名或 GitHub Pages 地址
 # 如果你的网站托管在 GitHub Pages，上面写上你的用户名仓库地址
-url: "https://qinhan8013.github.io"  
-
+url: "https://qinhan8013.github.io"
 
 # =====================================
 # 👤 作者信息（Author Information）
 # =====================================
 
 author:
-  name: Adam                     # 作者名字，会在文章页或页脚显示
-  email: QinHan8013@gmail.com    # 邮箱，可用于联系或 SEO 作者标识
-
+  name: Adam # 作者名字，会在文章页或页脚显示
+  email: QinHan8013@gmail.com # 邮箱，可用于联系或 SEO 作者标识
 
 # =====================================
 # ⚙️ 构建与 Markdown 解析设置（Build Settings）
@@ -32,26 +30,28 @@ markdown: kramdown
 
 # 详细的 kramdown 设置
 kramdown:
-  input: GFM                    # 启用 GitHub Flavored Markdown（支持表格、任务列表等）
-  syntax_highlighter: rouge     # 使用 rouge 高亮代码块（Jekyll 内置）
-  math_engine: mathjax          # 启用 MathJax 渲染数学公式（支持 $...$ 与 $$...$$）
-  hard_wrap: false              # 控制换行行为（false 表示普通换行不自动加 <br>）
-
+  input: GFM # 启用 GitHub Flavored Markdown（支持表格、任务列表等）
+  syntax_highlighter: rouge # 使用 rouge 高亮代码块（Jekyll 内置）
+  math_engine: mathjax # 启用 MathJax 渲染数学公式（支持 $...$ 与 $$...$$）
+  hard_wrap: false # 控制换行行为（false 表示普通换行不自动加 <br>）
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
 
 # =====================================
 # 🔌 插件设置（Plugins）
 # =====================================
 
 plugins:
-  - jekyll-feed                 # 自动生成 RSS 订阅 feed.xml
-  - jekyll-seo-tag              # 自动生成 SEO 相关 meta 标签（如标题、描述、Open Graph）
-
+  - jekyll-feed # 自动生成 RSS 订阅 feed.xml
+  - jekyll-seo-tag # 自动生成 SEO 相关 meta 标签（如标题、描述、Open Graph）
 
 # =====================================
 # 🚫 构建时排除的文件（Exclude Files）
 # =====================================
 
 exclude:
-  - Gemfile                     # Ruby 项目依赖文件（不需发布到网站）
-  - Gemfile.lock                # Gemfile 的锁定版本文件
-  - README.md                   # 说明文件，不参与网站构建
+  - Gemfile # Ruby 项目依赖文件（不需发布到网站）
+  - Gemfile.lock # Gemfile 的锁定版本文件
+  - README.md # 说明文件，不参与网站构建
