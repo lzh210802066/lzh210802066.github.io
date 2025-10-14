@@ -339,6 +339,53 @@ em {
     max-height: 4.8em;
 }
 
+/* 图片居中 */
+.center-img {
+    display: block;
+    margin: 1.5rem auto;
+    /* 自动左右居中 */
+}
+
+/* 控制大小 */
+.x-img 
+{
+    width: 20%;
+}
+
+.xx 
+{
+    width: 40%;
+}
+
+.xxx 
+{
+    width: 50%;
+}
+
+.medium-img 
+{
+    width: 70%;
+}
+
+.large-img {
+    width: 100%;
+}
+
+/* 若要圆角或阴影 */
+.center-img {
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* 覆盖通用设置，允许自定义宽度 */
+.post-content img[width],
+.post-content img[style],
+.post-content img[class*="img"] {
+    width: auto !important;
+    max-width: 100%;
+}
+
+
 /* ========== 响应式设计（移动端适配） ========== */
 @media (max-width: 768px) {
     body {
