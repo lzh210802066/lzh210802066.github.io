@@ -1,9 +1,21 @@
+<!-- ============================================================
+💡 Header 模板：网站顶部导航与标题
+============================================================ -->
 <header>
-  <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
   <nav>
-    {% for item in site.data.navigation.main %}
-      <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
-    {% endfor %}
+    <h1>
+      <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    </h1>
+    <!--
+        🔹 显示网站主标题（来自 _config.yml 的 site.title）。
+        🔹 点击可跳转回首页。
+        -->
+
+    <p>{{ site.description }}</p>
+    <!--
+        🔹 显示网站描述（site.description）。
+        🔹 常用于一句话简介或口号，例如“记录技术与生活”。
+        -->
   </nav>
 </header>
 

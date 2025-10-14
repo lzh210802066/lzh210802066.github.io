@@ -1,0 +1,17 @@
+<head>
+    <!-- 设置网页字符编码为 UTF-8，保证中文和多语言正常显示 -->
+    <meta charset="UTF-8">
+
+    <!-- 移动端响应式设置：
+         width=device-width：视口宽度等于设备宽度
+         initial-scale=1.0：初始缩放比例为 1 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 页面标题，显示在浏览器标签上：
+         {{ page.title }}：当前页面标题
+         {{ site.title }}：网站全局标题 -->
+    <title>{{ page.title }} - {{ site.title }}</title>
+
+    <!-- 引入自定义样式文件 style.css，用于控制页面排版和视觉效果 -->
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
