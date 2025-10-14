@@ -1,7 +1,7 @@
 <!-- ============================================================
 💡 Header 模板：网站顶部导航与标题
 ============================================================ -->
-<header>
+<header class="site-header">
   <nav>
     <h1>
       <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
@@ -18,6 +18,34 @@
         -->
   </nav>
 </header>
+
+<style>
+    /* 页眉样式 */
+      .site-header
+    {
+    background: #2c3e50; /* 深色背景 */
+    color: white; /* 白色文字 */
+    padding: 0.5rem; /* 内边距 */
+    margin-bottom: 0.5rem; /* 与主内容区的间距 */
+    border-radius: 8px; /* 圆角效果 */
+    }
+
+    /* 标题链接样式（header 内的 h1 a） */
+    .site-header h1 a
+    {
+    color: white; /* 保持标题为白色 */
+    text-decoration: none; /* 去掉下划线 */
+    }
+
+    /* 页眉描述文字 */
+    .site-header p
+    {
+    opacity: 0.8; /* 稍微降低不透明度，颜色更淡 */
+    margin-top: 0.5rem; /* 与标题的间距 */
+    }
+
+</style>
+
 
 
 
