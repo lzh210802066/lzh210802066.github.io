@@ -14,11 +14,14 @@ source "https://rubygems.org"
 # Jekyll 是整个静态网站生成的核心引擎
 gem "jekyll", "~> 4.3"
 
+
+# 核心 Markdown 解析器
+gem "kramdown"
+
 # 添加对 GitHub Flavored Markdown (GFM) 的支持
 # Jekyll 默认使用 kramdown 来渲染 Markdown
 # 但需要这个额外的解析器来支持表格、任务列表、删除线等 GFM 特性
-gem "kramdown-parser-gfm"
-
+gem 'kramdown-math-katex'
 
 # -------------------------------------
 # 🔌 插件组定义

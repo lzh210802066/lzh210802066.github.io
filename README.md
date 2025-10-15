@@ -1,28 +1,77 @@
-# Minimal Mistakes remote theme starter
+Jekyll 构建与浏览器渲染流程说明
 
-Click [**Use this template**](https://github.com/mmistakes/mm-github-pages-starter/generate) button above for the quickest method of getting started with the [Minimal Mistakes Jekyll theme](https://github.com/mmistakes/minimal-mistakes).
+========================
+1️⃣ Jekyll 静态生成阶段
+========================
 
-Contains basic configuration to get you a site with:
+1. 页面文件（如 index.html 或 post.md）包含 YAML Front Matter：
+   ---
+   layout: default
+   title: 首页
+   ---
 
-- Sample posts.
-- Sample top navigation.
-- Sample author sidebar with social links.
-- Sample footer links.
-- Paginated home page.
-- Archive pages for posts grouped by year, category, and tag.
-- Sample about page.
-- Sample 404 page.
-- Site wide search.
+2. Jekyll 读取index.html页面文件：
+   - 识别布局为 default
+   - 解析页面内容
 
-Replace sample content with your own and [configure as necessary](https://mmistakes.github.io/minimal-mistakes/docs/configuration/).
+3. Jekyll 读取布局模板 default.html：
+   - 包含公共结构：
+       {% include head.html %}  → 页头信息（CSS、JS、meta）
+       {% include header.html %} → 网站导航、标题
+       {{ content }} → 页面主体内容（index.html ）
+       {% include footer.html %} → 页脚信息（版权、联系方式）
 
----
+4. Jekyll 将页面内容index.html插入 {{ content }}：
+   - 生成完整 HTML 文件
 
-## Troubleshooting
+5. 解析 include 标签：
+   - head.html、header.html、footer.html 的内容被插入
+   - 最终生成 HTML （首页）
+   - 文件示例：
+   <html>
+     <head>...</head>
+     <body>
+       <header>...</header>
+       <main>页面主体内容</main>
+       <footer>...</footer>
+     </body>
+   </html>
 
-If you have a question about using Jekyll, start a discussion on the [Jekyll Forum](https://talk.jekyllrb.com/) or [StackOverflow](https://stackoverflow.com/questions/tagged/jekyll). Other resources:
+6. 完成静态站点构建，存放在 _site 文件夹
 
-- [Ruby 101](https://jekyllrb.com/docs/ruby-101/)
-- [Setting up a Jekyll site with GitHub Pages](https://jekyllrb.com/docs/github-pages/)
-- [Configuring GitHub Metadata](https://github.com/jekyll/github-metadata/blob/master/docs/configuration.md#configuration) to work properly when developing locally and avoid `No GitHub API authentication could be found. Some fields may be missing or have incorrect data.` warnings.
+========================
+2️⃣ 浏览器渲染阶段
+========================
 
+1. 浏览器请求 HTML 文件（通过 Jekyll serve 或 GitHub Pages）
+2. 浏览器接收到完整 HTML 文件
+3. 浏览器按顺序解析 HTML：
+   - <head> → 解析 CSS、JS、meta 等
+   - <body> → 渲染 header → main → footer
+4. 浏览器根据 CSS 样式计算布局并显示页面
+5. JavaScript 被加载并执行，增加动态效果
+
+========================
+3️⃣ default.html 的作用
+========================
+
+- **Jekyll 层面**：
+  - default.html 是基础布局模板（Layout）
+  - 包含站点公共结构和样式
+  - 页面内容通过 {{ content }} 插入布局
+  - 使用 include 管理 head/header/footer 等模块化内容
+  - 使全站结构统一，便于维护
+
+- **浏览器层面**：
+  - 浏览器看不到 default.html 概念
+  - 它只看到完整的 HTML 文件
+  - 仍按 HTML 解析顺序渲染页面
+
+========================
+4️⃣ 总结
+========================
+
+- default.html = 页面“容器框架”，统一管理头部、页脚和样式
+- 页面文件只关心主体内容，通过 layout 插入容器
+- Jekyll 生成的 HTML 文件交给浏览器渲染
+- include 文件实现模块化，方便修改全站统一内容

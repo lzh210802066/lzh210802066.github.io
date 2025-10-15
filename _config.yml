@@ -30,14 +30,10 @@ markdown: kramdown
 
 # 详细的 kramdown 设置
 kramdown:
-  input: GFM # 启用 GitHub Flavored Markdown（支持表格、任务列表等）
-  syntax_highlighter: rouge # 使用 rouge 高亮代码块（Jekyll 内置）
-  math_engine: mathjax # 启用 MathJax 渲染数学公式（支持 $...$ 与 $$...$$）
-  hard_wrap: false # 控制换行行为（false 表示普通换行不自动加 <br>）
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  math_engine: katex # ⚠️ 这里启用 KaTeX（而不是 MathJax）
+  input: GFM # ✅ 启用 GitHub 风格 Markdown，支持表格、任务列表等
+  hard_wrap: false # ✅ 普通换行不自动生成 <br>
+  syntax_highlighter: rouge # ✅ Rouge 用于代码块高亮
 
 # =====================================
 # 🔌 插件设置（Plugins）
