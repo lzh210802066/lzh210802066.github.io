@@ -13,6 +13,7 @@ source "https://rubygems.org"
 # "~> 4.3" 表示使用 4.3.x 版本（例如 4.3.2、4.3.3 等）
 # Jekyll 是整个静态网站生成的核心引擎
 gem "jekyll", "~> 4.3"
+gem "webrick", "~> 1.8"  # Ruby 3.0+ 必需
 
 
 # 核心 Markdown 解析器
