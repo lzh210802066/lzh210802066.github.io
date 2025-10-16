@@ -30,8 +30,13 @@ body {
     background-color: #fdfdfd;
     /* 页面背景颜色，浅色背景方便阅读 */
 
-    max-width: 900px;
+    /* ✅ 添加这两行 */
+        width: 90%;
+        max-width: 1200px;
+
+    /* max-width: 900px; */
     /* 页面最大宽度，防止大屏阅读太宽 */
+
     margin: 0 auto;
     /* 居中显示页面内容 */
     padding: 20px;

@@ -30,8 +30,13 @@ title: 首页
 <style>
 .post-preview 
 {
-    max-width: 800px;
-    margin: 2em auto;
+    width: 100%;          /* 铺满父容器 */
+    max-width: none;      /* 移除宽度限制 */
+    margin: 2em 0;        /* 只保留上下间距 */
+
+    /*max-width: 800px;
+    margin: 2em auto;*/
+    
     padding: 1.5em;
     border: 1px solid #eee;
     border-radius: 6px;

@@ -1,5 +1,5 @@
 
-
+/*header.css : .site-header 样式负责页眉外观 */
 /* 页眉样式 */
 .site-header {
     background: #2c3e50;
@@ -12,7 +12,19 @@
     /* 与主内容区的间距 */
     border-radius: 8px;
     /* 圆角效果 */
+
+
+    /* 🔧 新增：让header独立于body的宽度限制 */
+        width: 100vw;
+        /* 视口宽度 */
+        margin-left: calc(-50vw + 50%);
+        /* 居中并突破父容器限制 */
+        position: relative;
+        left: 50%;
+        right: 50%;
 }
+
+
 
 /* 标题链接样式（header 内的 h1 a） */
 .site-header h1 a {
@@ -29,4 +41,6 @@
     margin-top: 0.5rem;
     /* 与标题的间距 */
 }
+
+
 
