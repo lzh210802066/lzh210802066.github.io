@@ -13,15 +13,6 @@
     border-radius: 8px;
     /* 圆角效果 */
 
-
-    /* 🔧 新增：让header独立于body的宽度限制 */
-        width: 100vw;
-        /* 视口宽度 */
-        margin-left: calc(-50vw + 50%);
-        /* 居中并突破父容器限制 */
-        position: relative;
-        left: 50%;
-        right: 50%;
 }
 
 
