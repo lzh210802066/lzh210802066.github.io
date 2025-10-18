@@ -12,10 +12,26 @@
          {{ site.title }}：网站全局标题 -->
     <title>{{ page.title }} - {{ site.title }}</title>
 
-    <!-- 引入自定义样式文件 style.css，用于控制页面排版和视觉效果 -->
+    <!-- 引入自定义样式文件 style.css，用于控制页面排版和视觉效果() -->
+
+<!-- 
+     CSS 中重复选择器的基本规则：后写的规则会覆盖前面的规则（同等权重情况下）
+     CSS 遵循层叠规则（Cascading）：
+     越后面的样式优先级越高（除非权重不同）
+     同一个选择器后写的样式会覆盖之前的设置
+     不同文件引入顺序影响样式：
+     <link rel="stylesheet" href="style.css">
+
+     <link rel="stylesheet" href="markdown.css">
+
+     浏览器按顺序加载，后面的文件可以覆盖前面文件的样式
+-->
+
+
+
+     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
      <link rel="stylesheet" href="{{ '/assets/css/markdown.css' | relative_url }}">
-     
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 
     <link rel="stylesheet" href="{{ '/assets/css/header.css' | relative_url }}">
 

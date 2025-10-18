@@ -1,37 +1,161 @@
 
-/*header.css : .site-header 样式负责页眉外观 */
-/* 页眉样式 */
+
+
+/*===================================
+/*===================================
+/*===================================
+/*===================================
+
+/* header.css : 页眉和导航栏样式 */
+
+/* ============================================================
+   页眉整体样式
+   ============================================================ */
 .site-header {
     background: #2c3e50;
-    /* 深色背景 */
     color: white;
-    /* 白色文字 */
-    padding: 0.5rem;
-    /* 内边距 */
+    padding: 1rem 2rem;
     margin-bottom: 0.5rem;
-    /* 与主内容区的间距 */
     border-radius: 8px;
-    /* 圆角效果 */
-
 }
 
+/* ============================================================
+   导航栏容器 - 使用 Flexbox 横向布局
+   ============================================================ */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* 小屏幕时允许换行 */
+    gap: 1rem;
+}
 
+/* ============================================================
+   网站标题样式
+   ============================================================ */
+.navbar h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
 
-/* 标题链接样式（header 内的 h1 a） */
-.site-header h1 a {
+.navbar h1 a {
     color: white;
-    /* 保持标题为白色 */
     text-decoration: none;
-    /* 去掉下划线 */
+    font-weight: 700;
 }
 
-/* 页眉描述文字 */
-.site-header p {
+.navbar h1 a:hover {
     opacity: 0.8;
-    /* 稍微降低不透明度，颜色更淡 */
-    margin-top: 0.5rem;
-    /* 与标题的间距 */
 }
 
+/* ============================================================
+   网站描述文字
+   ============================================================ */
+.navbar p {
+    opacity: 0.8;
+    margin: 0.3rem 0 0 0;
+    font-size: 0.9rem;
+}
 
+/* ============================================================
+   主导航列表 - 横向排列
+   ============================================================ */
+.nav-links {
+    list-style: none;
+    display: flex;
+    /* 关键：横向布局 */
+    align-items: center;
+    gap: 1.5rem;
+    /* 导航项之间的间距 */
+    margin: 0;
+    padding: 0;
+}
 
+/* ============================================================
+   导航项样式
+   ============================================================ */
+.nav-links>li {
+    position: relative;
+    /* 为下拉菜单定位做准备 */
+}
+
+/* 导航链接样式 */
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================================
+   下拉菜单样式
+   ============================================================ */
+.nav-links .dropdown {
+    display: none;
+    /* 默认隐藏 */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #34495e;
+    list-style: none;
+    padding: 0.5rem 0;
+    margin: 0;
+    min-width: 150px;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* 鼠标悬停时显示下拉菜单 */
+.nav-links li:hover .dropdown {
+    display: block;
+}
+
+/* 下拉菜单项样式 */
+.nav-links .dropdown li {
+    margin: 0;
+}
+
+.nav-links .dropdown a {
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+}
+
+.nav-links .dropdown a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ============================================================
+   响应式设计 - 移动端适配
+   ============================================================ */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 0.5rem;
+    }
+
+    .nav-links .dropdown {
+        position: static;
+        display: none;
+        background-color: rgba(255, 255, 255, 0.1);
+        margin-top: 0.5rem;
+    }
+
+    .nav-links li:hover .dropdown {
+        display: block;
+    }
+}
