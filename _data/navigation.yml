@@ -1,10 +1,12 @@
 main:
-  - title: "文章"
+  - title: "所有文章"
     url: /posts/
     children:
+      - title: "office"
+        url: /posts/office/
       - title: "技术"
         url: /posts/technology/
       - title: "技能"
-        url: /_posts/skill/
+        url: /posts/skill/
   - title: "关于"
     url: /about/

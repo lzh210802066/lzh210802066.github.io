@@ -1,0 +1,133 @@
+---
+layout: default
+title: 技能文章
+---
+
+<h1>技能文章</h1>
+
+{% assign skill_posts = site.categories.skill %}
+{% if skill_posts and skill_posts.size > 0 %}
+<ul class="post-list">
+    {% for post in skill_posts %}
+    <li>
+        <article class="post-preview">
+            <h2>
+                <a href="{{ post.url }}">{{ post.title }}</a>
+                <small class="post-date">· {{ post.date | date: "%Y-%m-%d" }}</small>
+            </h2>
+            <p>{{ post.excerpt }}</p>
+            <a href="{{ post.url }}">阅读全文 →</a>
+        </article>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p style="color:#888; text-align:center; margin:2em 0;">暂无技能类文章。</p>
+{% endif %}
+
+
+<style>
+    .post-preview {
+        width: 100%;
+        /* 铺满父容器 */
+        max-width: none;
+        /* 移除宽度限制 */
+        margin: 2em 0;
+        /* 只保留上下间距 */
+
+        /*max-width: 800px;
+    margin: 2em auto;*/
+
+        padding: 1.5em;
+        border: 1px solid #eee;
+        border-radius: 6px;
+        background-color: #fff;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    /* 这是 CSS 注释 ，只有放在 <style> 标签或外部 CSS 文件里才会生效。 */
+    /*
+    生效规则说明：
+
+    1. 选择器含义：
+       - .post-preview → 匹配 class="post-preview" 的所有元素
+       - 在本例中每篇首页文章的 <article> 元素
+
+    2. 层级作用：
+       - 只匹配拥有 post-preview 类的元素本身
+       - 不会影响 post-preview 内部的子元素，除非子元素继承了某些属性（如 color、font-family）
+
+    3. 应用流程：
+       - 浏览器扫描 DOM，找到 class="post-preview" 的元素
+       - 对匹配到的元素应用样式规则
+
+    4. 优先级：
+       - 类选择器的优先级为中等
+       - 如果有更具体的选择器（如 #id .post-preview 或内联样式）会覆盖此规则
+
+    5. 效果：
+       - max-width: 限制最大宽度，保证内容不太宽
+       - margin: 使卡片上下间距为 2em，左右居中
+       - padding: 内边距，让内容不贴边
+       - border: 浅灰边框
+       - border-radius: 圆角效果
+       - background-color: 背景为白色
+       - box-shadow: 添加轻微阴影，卡片感
+    */
+
+    /* ==========================================这是 CSS 注释===================================================== */
+    /* ==========================================这是 CSS 注释===================================================== */
+    /* ==========================================这是 CSS 注释===================================================== */
+
+    .post-preview h2 {
+        margin-bottom: 0.3em;
+    }
+
+    /* 
+    生效规则说明：
+    1. 选择器含义：.post-preview h2
+       - .post-preview → 匹配 class="post-preview" 的元素（这里是每篇文章的 <article>）
+       - h2 → 匹配其内部的 <h2> 元素
+    2. 层级关系：只作用于 .post-preview 内部的 h2，不影响页面其他 h2
+    3. 应用流程：
+       - 浏览器在 DOM 树中找到 class="post-preview" 的元素
+       - 查找其内部的 h2 元素
+       - 对匹配到的 h2 元素应用 margin-bottom: 0.3em
+    4. 优先级：
+       - 此样式为普通类选择器，优先级中等
+       - 如果有更具体的选择器或内联样式，会覆盖此规则
+    5. 效果：
+       - 控制文章标题与下方日期或摘要之间的间距
+    */
+
+    /* ==========================================这是 CSS 注释===================================================== */
+    /* ==========================================这是 CSS 注释===================================================== */
+    /* ==========================================这是 CSS 注释===================================================== */
+
+    .post-preview p {
+        margin-bottom: 0.5em;
+        line-height: 1.6;
+        text-indent: 2em;
+        /* 首行缩进2个字符宽度 */
+    }
+
+    /* ==========================================这是 CSS 注释===================================================== */
+    /* ==========================================这是 CSS 注释===================================================== */
+    /* ==========================================这是 CSS 注释===================================================== */
+
+    .post-preview a {
+        color: #007acc;
+        text-decoration: none;
+    }
+
+    .post-preview-date {
+        font-size: 0.65em;
+        color: #999;
+        background: none;
+        /* 移除背景 */
+        border: none;
+        /* 移除边框 */
+        padding: 0;
+        /* 移除多余内边距 */
+    }
+</style>
