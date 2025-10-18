@@ -1,161 +1,120 @@
-
-
-
-/*===================================
-/*===================================
-/*===================================
-/*===================================
-
-/* header.css : 页眉和导航栏样式 */
-
-/* ============================================================
-   页眉整体样式
-   ============================================================ */
 .site-header {
-    background: #2c3e50;
-    color: white;
-    padding: 1rem 2rem;
-    margin-bottom: 0.5rem;
-    border-radius: 8px;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 1em 2em;
 }
 
-/* ============================================================
-   导航栏容器 - 使用 Flexbox 横向布局
-   ============================================================ */
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
-    /* 小屏幕时允许换行 */
-    gap: 1rem;
+    flex-wrap: nowrap;
+    /* 禁止换行，手机端也横向 */
 }
 
-/* ============================================================
-   网站标题样式
-   ============================================================ */
-.navbar h1 {
-    margin: 0;
-    font-size: 1.5rem;
+/* 左侧头像 */
+.nav-left .site-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
+    margin-right: 1em;
 }
 
-.navbar h1 a {
-    color: white;
+/* 中间标题和描述 */
+.nav-center {
+    text-align: left;
+}
+
+.nav-center .site-title a {
+    font-size: 1.5em;
+    color: #333;
     text-decoration: none;
-    font-weight: 700;
 }
 
-.navbar h1 a:hover {
-    opacity: 0.8;
+.nav-center .site-description {
+    font-size: 0.9em;
+    color: #666;
+    margin: 0;
 }
 
-/* ============================================================
-   网站描述文字
-   ============================================================ */
-.navbar p {
-    opacity: 0.8;
-    margin: 0.3rem 0 0 0;
-    font-size: 0.9rem;
-}
-
-/* ============================================================
-   主导航列表 - 横向排列
-   ============================================================ */
-.nav-links {
+/* 右侧导航 */
+.nav-right .nav-links {
     list-style: none;
     display: flex;
-    /* 关键：横向布局 */
-    align-items: center;
-    gap: 1.5rem;
-    /* 导航项之间的间距 */
+    gap: 1em;
     margin: 0;
     padding: 0;
 }
 
-/* ============================================================
-   导航项样式
-   ============================================================ */
-.nav-links>li {
+.nav-links li {
     position: relative;
-    /* 为下拉菜单定位做准备 */
 }
 
-/* 导航链接样式 */
 .nav-links a {
-    color: white;
     text-decoration: none;
-    padding: 0.5rem 1rem;
-    display: block;
-    border-radius: 4px;
-    transition: background-color 0.2s ease;
+    color: #007acc;
+    font-weight: 500;
 }
 
 .nav-links a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    text-decoration: underline;
 }
 
-/* ============================================================
-   下拉菜单样式
-   ============================================================ */
+/* 下拉菜单 */
 .nav-links .dropdown {
     display: none;
-    /* 默认隐藏 */
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #34495e;
     list-style: none;
-    padding: 0.5rem 0;
-    margin: 0;
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 0.5em 0;
     min-width: 150px;
-    border-radius: 4px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+    z-index: 100;
 }
 
-/* 鼠标悬停时显示下拉菜单 */
-.nav-links li:hover .dropdown {
+.nav-links li:hover>.dropdown {
     display: block;
 }
 
-/* 下拉菜单项样式 */
 .nav-links .dropdown li {
-    margin: 0;
+    padding: 0.3em 1em;
 }
 
-.nav-links .dropdown a {
-    padding: 0.5rem 1rem;
-    white-space: nowrap;
+.nav-links .dropdown li a {
+    color: #333;
 }
 
-.nav-links .dropdown a:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-}
-
-/* ============================================================
-   响应式设计 - 移动端适配
-   ============================================================ */
+/* ====================== 手机端保持横向排列 ====================== */
 @media (max-width: 768px) {
     .navbar {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-wrap: nowrap;
+        /* 强制横向，不换行 */
+        overflow-x: auto;
+        /* 超出宽度时可横向滚动 */
     }
 
-    .nav-links {
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-        gap: 0.5rem;
+    .nav-left,
+    .nav-center,
+    .nav-right {
+        flex-shrink: 0;
+        /* 防止缩小 */
+        margin-bottom: 0;
     }
 
+    .nav-right .nav-links {
+        flex-direction: row;
+        /* 保持横向排列 */
+        gap: 0.8em;
+    }
+
+    /* 下拉菜单手机端也横向显示 */
     .nav-links .dropdown {
-        position: static;
-        display: none;
-        background-color: rgba(255, 255, 255, 0.1);
-        margin-top: 0.5rem;
-    }
-
-    .nav-links li:hover .dropdown {
-        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
     }
 }
