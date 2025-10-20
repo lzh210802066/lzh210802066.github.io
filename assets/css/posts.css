@@ -58,13 +58,14 @@
 .post-content p 
 {
     margin-bottom: 1rem;
-    text-indent: 2em;
-    /* 首行缩进2个字符宽度 */
+    text-indent: 0em;
+    /* 首行缩进0个字符宽度 */
     max-width: 100%;
     /* 防止父元素撑开 */
     overflow: hidden;
     /* 隐藏可能溢出的部分 */
 }
+
 
 /* 各级标题在文章内容中的统一样式 */
 .post-content h1,
