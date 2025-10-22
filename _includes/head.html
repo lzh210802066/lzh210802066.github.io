@@ -93,28 +93,21 @@
      </script>
 
      
-     <!-- =========图片缩放功能======= -->
-     
-     <!-- Medium Zoom 图片缩放功能 -->
+     <!-- Medium Zoom -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.0.6/medium-zoom.min.js"></script>
      <script>
+          // 页面加载完成后初始化
           document.addEventListener('DOMContentLoaded', function () {
-               const zoom = mediumZoom('article img, .post-content img, .content img', {
-                    margin: 24,
-                    background: 'rgba(0, 0, 0, 0.9)',
-                    scrollOffset: 0
-               });
-
-               // 防止页面滚动
-               zoom.on('open', function () {
-                    document.body.style.overflow = 'hidden';
-               });
-
-               zoom.on('close', function () {
-                    document.body.style.overflow = '';
+               // 为文章内的所有图片添加缩放功能
+               mediumZoom('article img, .post-content img, .content img', {
+                    margin: 24,           // 图片与边缘的距离
+                    background: '#000',   // 背景颜色
+                    scrollOffset: 0,      // 滚动偏移
+                    container: null,
+                    template: null
                });
           });
+
+
      </script>
-
-
 </head>
