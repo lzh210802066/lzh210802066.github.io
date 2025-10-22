@@ -147,35 +147,3 @@
 }
 
 
-/* ========== Medium Zoom 额外优化 ========== */
-
-/* 防止放大时页面跟随缩放 */
-body.medium-zoom--opened {
-    overflow: hidden !important;
-}
-
-/* 确保遮罩层覆盖整个视口 */
-.medium-zoom-overlay {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    z-index: 9999 !important;
-}
-
-/* 确保放大的图片在最上层 */
-.medium-zoom-image {
-    position: fixed !important;
-    z-index: 10000 !important;
-}
-
-/* 移动端触摸优化 */
-@media (max-width: 767px) {
-    .medium-zoom-image--opened {
-        max-width: 95vw !important;
-        max-height: 95vh !important;
-    }
-}
