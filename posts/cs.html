@@ -1,0 +1,91 @@
+---
+layout: default
+title: cs
+---
+
+<h2>CS</h2>
+
+{% assign cs_posts = site.categories.cs %}
+{% if cs_posts and cs_posts.size > 0 %}
+<ul class="post-list">
+  {% for post in cs_posts %}
+  <li>
+    <article class="post-preview">
+      <h2>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        <small class="post-date">· {{ post.date | date: "%Y-%m-%d" }}</small>
+      </h2>
+      <p>{{ post.excerpt }}</p>
+      <a href="{{ post.url }}">阅读全文 →</a>
+    </article>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p style="color:#888; text-align:center; margin:2em 0;">暂无技能类文章。</p>
+{% endif %}
+
+
+<style>
+  /* ==================== 卡片样式 ==================== */
+  .post-preview {
+    width: 100%;
+    /* 铺满父容器 */
+    max-width: 1200px;
+    /* 最大宽度，防止大屏过宽 */
+    margin: 2em auto;
+    /* 上下 2em，左右居中 */
+    padding: 1.5em;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+  }
+
+  .post-preview h2 {
+    margin-bottom: 0.3em;
+  }
+
+  .post-preview p {
+    margin-bottom: 0.5em;
+    line-height: 1.6;
+    text-indent: 2em;
+    /* 首行缩进 */
+  }
+
+  .post-preview a {
+    color: #007acc;
+    text-decoration: none;
+  }
+
+  .post-preview a:hover {
+    text-decoration: underline;
+  }
+
+  .post-date {
+    font-size: 0.65em;
+    color: #999;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  /* ==================== 列表样式 ==================== */
+  .post-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ==================== 响应式 ==================== */
+  @media (max-width: 768px) {
+    .post-preview {
+      padding: 1em;
+    }
+
+    .post-preview p {
+      text-indent: 1em;
+    }
+  }
+</style>

@@ -4,6 +4,8 @@ main:
     children:
       - title: "office"
         url: /posts/office/
+      - title: "CS"
+        url: /posts/cs/
       - title: "技术"
         url: /posts/technology/
       - title: "技能"
