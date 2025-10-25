@@ -50,44 +50,296 @@ rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
 
 **以下是一些常用的 pyplot 函数：**
 
-plot()：用于绘制线图和散点图
+### plot()：用于绘制线图和散点图
 
 >  画单条线
 > plot ( [x], y, [fmt], *, data=None, **kwargs )
 > 
 >  画多条线
 > plot ( [x], y, [fmt], [x2], y2, [fmt2], ..., **kwargs )
-> 
-> x, y：点或线的节点，x 为 x 轴数据，y 为 y 轴数据，数据可以列表或数组。
->
-> fmt：可选，定义基本格式（如颜色、标记和线条样式）。
->
-> **kwargs：可选，用在二维平面图上，设置指定属性，如标签，线的宽度等。
 
-颜色字符：'b' 蓝色，'m' 洋红色，'g' 绿色，'y' 黄色，'r' 红色，'k' 黑色，'w' 白色，'c' 青绿色，'#008000' RGB 颜色符串。多条曲线不指定颜色时，会自动选择不同颜色。
+<table>
+      <th>
+          参数
+      </th>
+      <th>
+          作用: 
+      </th>
+      <th>
+          类型/格式
+      </th>
+      <th>
+          说明
+      </th>
+       <tr>
+            <td>
+                [x] (可选)    
+            </td>
+            <td>
+                 x轴数据 
+            </td>
+            <td>
+                 数组或标量，默认为range(len(y))
+            </td>
+            <td>
+                 如果省略，x会自动生成[0, 1, 2, ..., len(y)-1]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                 y（必选）   
+            </td>
+            <td>
+                 y轴数据 
+            </td>
+            <td>
+                 数组或标量
+            </td>
+            <td>
+                 必需的参数，表示y坐标值
+            </td>
+        </tr>
+        <tr>
+            <td>
+                 [fmt] (可选)
+            </td>
+            <td>
+                 格式字符串，用于快速设置基本格式（如颜色、标记和线条样式）
+            </td>
+            <td>
+                  '[marker][line][color]'
+            </td>
+            <td> 
+            </td>
+        </tr>
+        <tr>
+            <td>
+                data (可选)
+            </td>
+            <td>
+                 指定数据来源
+            </td>
+            <td>
+                 带索引的对象（如DataFrame）
+            </td>
+            <td>
+                 当提供data参数时，x和y可以是字符串，表示data中的列名
+            </td>
+        </tr>
+        <tr>
+            <td>
+                **kwargs (可选)
+            </td>
+            <td>
+                 其他关键字参数，用于精细控制线条属性
+            </td>
+            <td>
+                 color: 颜色 <br> linestyle: 线条样式  <br>linewidth: 线宽  <br> marker: 标记样式  <br>markersize: 标记大小 <br> label: 图例标签
+            </td>
+            <td>
+                 
+            </td>
+        </tr>
+</table>
 
-线型参数：'‐' 实线，'‐‐' 破折线，'‐.' 点划线，':' 虚线。
 
-标记字符：'.' 点标记，',' 像素标记(极小点)，'o' 实心圈标记，'v' 倒三角标记，'^' 上三角标记，'>' 右三角标记，'<' 左三角标记...等等。
+自定义标记（marker）的大小与颜色，使用的参数分别是：
 
-如果我们不指定 x 轴上的点，则 x 会根据 y 的值来设置为 0, 1, 2, 3..N-1。
+markersize，简写为 ms：定义标记的大小。
+
+markerfacecolor，简写为 mfc：定义标记内部的颜色。
+
+markeredgecolor，简写为 mec：定义标记边框的颜色。
+
+
+<table>
+    <tr>
+        <td>线类型标记</td>
+        <td>描述 </td>
+    </tr>
+    <tr>
+        <td>&#39;-&#39;</td>
+        <td>实线 </td>
+    </tr>
+    <tr>
+        <td>&#39;:&#39;</td>
+        <td>虚线 </td>
+    </tr>
+    <tr>
+        <td>&#39;--&#39;</td>
+        <td>破折线 </td>
+    </tr>
+    <tr>
+        <td>&#39;-.&#39;</td>
+        <td>点划线</td>
+    </tr>
+</table>
+
+
+<table>
+    <tr>
+        <td>颜色标记</td>
+        <td>描述 </td>
+    </tr>
+    <tr>
+        <td>&#39;r&#39;</td>
+        <td>红色 </td>
+    </tr>
+    <tr>
+        <td>&#39;g&#39;</td>
+        <td>绿色 </td>
+    </tr>
+    <tr>
+        <td>&#39;b&#39;</td>
+        <td>蓝色 </td>
+    </tr>
+    <tr>
+        <td>&#39;c&#39;</td>
+        <td>青色 </td>
+    </tr>
+    <tr>
+        <td>&#39;m&#39;</td>
+        <td>品红 </td>
+    </tr>
+    <tr>
+        <td>&#39;y&#39;</td>
+        <td>黄色 </td>
+    </tr>
+    <tr>
+        <td>&#39;k&#39;</td>
+        <td>黑色 </td>
+    </tr>
+    <tr>
+        <td>&#39;w&#39;</td>
+        <td>白色</td>
+    </tr>
+</table>
+
+### Matplotlib 绘图线
+
+
+
+
+### Matplotlib 标题和轴标签
+
+```python
+plt.title("TITLE")
+```
+
+```python
+plt.xlabel("x - label")
+plt.ylabel("y - label")
+```
+
+
+
+### Matplotlib 网格线
+
+```python
+matplotlib.pyplot.grid(b=None, which='major', axis='both', )
+```
+
+参数说明：
+
+b：可选，默认为 None，可以设置布尔值，true 为显示网格线，false 为不显示，如果设置 **kwargs 参数，则值为 true。
+
+which：可选，可选值有 'major'、'minor' 和 'both'，默认为 'major'，表示应用更改的网格线。
+
+axis：可选，设置显示哪个方向的网格线，可以是取 'both'（默认），'x' 或 'y'，分别表示两个方向，x 轴方向或 y 轴方向。
+
+**kwargs：可选，设置网格样式，可以是 color='r', linestyle='-' 和 linewidth=2，分别表示网格线的颜色，样式和宽度。
+
+
+### Matplotlib 绘制多图
+使用 pyplot 中的 subplot() 和 subplots() 方法来绘制多个子图。
+
+subplot() 方法在绘图时需要指定位置，
+
+```python
+subplot(nrows, ncols, index, **kwargs)
+```
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+#plot 1:
+x = np.array([0, 6])
+y = np.array([0, 100])
+
+plt.subplot(2, 2, 1)
+plt.plot(x,y)
+plt.title("plot 1")
+
+#plot 2:
+x = np.array([1, 2, 3, 4])
+y = np.array([1, 4, 9, 16])
+
+plt.subplot(2, 2, 2)
+plt.plot(x,y)
+plt.title("plot 2")
+
+#plot 3:
+x = np.array([1, 2, 3, 4])
+y = np.array([3, 5, 7, 9])
+
+plt.subplot(2, 2, 3)
+plt.plot(x,y)
+plt.title("plot 3")
+
+#plot 4:
+x = np.array([1, 2, 3, 4])
+y = np.array([4, 5, 6, 7])
+
+plt.subplot(2, 2, 4)
+plt.plot(x,y)
+plt.title("plot 4")
+
+plt.suptitle("Test")
+plt.show()
+```
+
+subplots() 方法可以一次生成多个，在调用时只需要调用生成对象的 ax 即可。
+
+
+## Matplotlib 散点图 pyplot.scatter() 
 
 
 
 
 
 
-scatter()：用于绘制散点图
 
-bar()：用于绘制垂直条形图和水平条形图
 
-hist()：用于绘制直方图
 
-pie()：用于绘制饼图
 
-imshow()：用于绘制图像
 
-subplots()：用于创建子图
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
