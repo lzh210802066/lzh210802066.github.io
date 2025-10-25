@@ -31,6 +31,17 @@ from matplotlib import rcParams
 rcParams['font.sans-serif'] = ['SimHei'] # 设置中文字体（Windows 系统常用“SimHei”黑体） 
 rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
 
+# 单条线: plot ( [x], y, [fmt], *, data=None, **kwargs )
+# 多条线: plot ( [x], y, [fmt], [x2], y2, [fmt2], ..., **kwargs )
+
+#网格线: matplotlib.pyplot.grid(b=None, which='major', axis='both', )
+
+
+
+
+
+
+
 plt.title("TITLE")        #标题
 plt.xlabel("x - label")   #x轴标签
 plt.ylabel("y - label")   #y轴标签
@@ -39,15 +50,14 @@ plt.ylabel("y - label")   #y轴标签
 
 
 
->  画单条线
-> plot ( [x], y, [fmt], *, data=None, **kwargs )
-> 
->  画多条线
-> plot ( [x], y, [fmt], [x2], y2, [fmt2], ..., **kwargs )
+
+
+ 
+
 
 <table>
       <th>
-          参数
+          plot参数
       </th>
       <th>
           作用: 
@@ -91,7 +101,7 @@ plt.ylabel("y - label")   #y轴标签
                  [fmt] (可选)
             </td>
             <td>
-                 格式字符串，用于快速设置基本格式（如颜色、标记和线条样式）<br>默认格式字符串是“b-”，它是一条蓝色实线。
+                 格式字符串，用于快速设置基本格式（如颜色、标记和线条样式）<br>默认格式字符串是“b-”，蓝色实线无标记。
             </td>
             <td>
                   '[marker][line][color]' <br>点型（marker）<br>线型（linestyle）<br>颜色（color）
@@ -121,22 +131,14 @@ plt.ylabel("y - label")   #y轴标签
                  其他关键字参数，用于精细控制线条属性
             </td>
             <td>
-                 color: 颜色 <br> linestyle: 线条样式  <br>linewidth: 线宽  <br> marker: 标记样式  <br>markersize: 标记大小 <br> label: 图例标签
+                 marker: 标记样式<br>linestyle: 线条样式  <br>color: 颜色
             </td>
             <td>
-                 
+                 markersize（简写 ms）: 标记大小，默认为 6<br>markerfacecolor（简写 mfc）:标记内部颜色<br>markeredgecolor（简写 mec）:标记边框颜色<br><br>linewidth（lw）: 线宽  <br>    <br> label: 图例标签
             </td>
         </tr>
 </table>
 
-
-自定义标记（marker）的大小与颜色，使用的参数分别是：
-
-markersize，简写为 ms：定义标记的大小。
-
-markerfacecolor，简写为 mfc：定义标记内部的颜色。
-
-markeredgecolor，简写为 mec：定义标记边框的颜色。
 
 
 <table>
@@ -201,10 +203,6 @@ markeredgecolor，简写为 mec：定义标记边框的颜色。
         <td>白色</td>
     </tr>
 </table>
-
-### Matplotlib 绘图线
-
-
 
 
 ### Matplotlib 网格线
