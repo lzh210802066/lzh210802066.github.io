@@ -11,26 +11,17 @@ date: 2025-10-24 # 定义文章发布日期。可用于排序、生成归档、R
 categories: skill 
 ---
 
-Matplotlib是Python的绘图库，将数据图形化，用来绘制各种静态，动态，交互式的图表，并且提供多样化的输出格式。
+Matplotlib是Python的绘图库，将数据图形化，用来绘制各种静态，动态，交互式的图表(线图、散点图、等高线图、条形图、柱状图、3D图形、图形动画等等)，并且提供多样化的输出格式。
 
-绘制线图、散点图、等高线图、条形图、柱状图、3D图形、甚至是图形动画等等。
 
-### 应用:
+
 Matplotlib 通常与[Numpy]({% post_url 2025-10-24-numpy %}) 和 [Scipy]({% post_url 2025-10-24-scipy %})一起使用，这种组合广泛用于替代 MatLab，是一个强大的科学计算环境，有助于通过 Python 学习数据科学或者机器学习。
 
 
+# 一、pyplot
 
-
-
-
-
-
-
-
-## pyplot
+## plot()：用于绘制线图和散点图
 Pyplot 是 Matplotlib 的子库，提供了和 MATLAB 类似的绘图 API。
-
-
 
 
 ```python
@@ -39,18 +30,14 @@ import matplotlib.pyplot as plt
 from matplotlib import rcParams
 rcParams['font.sans-serif'] = ['SimHei'] # 设置中文字体（Windows 系统常用“SimHei”黑体） 
 rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
+
+plt.title("TITLE")        #标题
+plt.xlabel("x - label")   #x轴标签
+plt.ylabel("y - label")   #y轴标签
 ```
 
 
 
-
-
-
-
-
-**以下是一些常用的 pyplot 函数：**
-
-### plot()：用于绘制线图和散点图
 
 >  画单条线
 > plot ( [x], y, [fmt], *, data=None, **kwargs )
@@ -104,10 +91,10 @@ rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
                  [fmt] (可选)
             </td>
             <td>
-                 格式字符串，用于快速设置基本格式（如颜色、标记和线条样式）
+                 格式字符串，用于快速设置基本格式（如颜色、标记和线条样式）<br>默认格式字符串是“b-”，它是一条蓝色实线。
             </td>
             <td>
-                  '[marker][line][color]'
+                  '[marker][line][color]' <br>点型（marker）<br>线型（linestyle）<br>颜色（color）
             </td>
             <td> 
             </td>
@@ -217,19 +204,6 @@ markeredgecolor，简写为 mec：定义标记边框的颜色。
 
 ### Matplotlib 绘图线
 
-
-
-
-### Matplotlib 标题和轴标签
-
-```python
-plt.title("TITLE")
-```
-
-```python
-plt.xlabel("x - label")
-plt.ylabel("y - label")
-```
 
 
 
