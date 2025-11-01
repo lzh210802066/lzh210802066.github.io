@@ -32,19 +32,124 @@
 </main>
 
 
-
 {% include footer.html %}
 
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 40px;
+    }
 
+    p {
+        margin-bottom: 20px;
+        font-size: 18px;
+    }
+
+    #copyTip {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-size: 14px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+        z-index: 9999;
+    }
+</style>
+
+<div id="copyTip">已复制</div>
+
+<script>
+    const copyTip = document.getElementById('copyTip');
+
+    function showTip() {
+        copyTip.style.opacity = '1';
+        setTimeout(() => copyTip.style.opacity = '0', 1000);
+    }
+
+    function copyTextToClipboard(text) {
+        if (!text) return;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(showTip).catch(() => fallbackCopy(text));
+        } else {
+            fallbackCopy(text);
+        }
+    }
+
+    function fallbackCopy(text) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand('copy');
+            showTip();
+        } catch (err) {
+            console.error('复制失败', err);
+        }
+        textarea.remove();
+    }
+
+    document.addEventListener('mouseup', (event) => {
+        // 只处理左键放开
+        if (event.button !== 0) return;
+
+        setTimeout(() => {
+            const selection = window.getSelection().toString().trim();
+            if (selection.length > 0) {
+                copyTextToClipboard(selection);
+                console.log('已复制到剪贴板:', selection);
+            }
+        }, 20); // 延迟 20ms 确保选区完成
+    });
+</script>
 
 
 
 </body>
 </html>
-   
 
-    
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
