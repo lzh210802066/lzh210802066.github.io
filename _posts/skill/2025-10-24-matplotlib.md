@@ -31,20 +31,25 @@ from matplotlib import rcParams
 rcParams['font.sans-serif'] = ['SimHei'] # 设置中文字体（Windows 系统常用“SimHei”黑体） 
 rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
 
-# 单条线: plot ( [x], y, [fmt], *, data=None, **kwargs )
-# 多条线: plot ( [x], y, [fmt], [x2], y2, [fmt2], ..., **kwargs )
+# 单条线: plt.plot ( [x], y, [fmt], *, data=None, **kwargs )
+# 多条线: plt.plot ( [x], y, [fmt], [x2], y2, [fmt2], ..., **kwargs )
 
 #网格线: matplotlib.pyplot.grid(b=None, which='major', axis='both', )
 
+plt.plot(x,y,label='First Line')
 
+plt.plot(x2,y2,label='Second Line')
 
+#添加参数label:为线条指定名称，可在图例中显示。
 
-
-
-
-plt.title("TITLE")        #标题
+plt.title("TITLE\nsubtitle")        #标题
 plt.xlabel("x - label")   #x轴标签
 plt.ylabel("y - label")   #y轴标签
+
+plt.legend() #在plt.show()前上,用来标示图形的文本标签图例.（防止不显示图例）
+
+plt.show()
+
 ```
 
 
@@ -273,26 +278,95 @@ plt.show()
 subplots() 方法可以一次生成多个，在调用时只需要调用生成对象的 ax 即可。
 
 
-## Matplotlib 散点图 pyplot.scatter() 
+## Matplotlib 条形图 plt.bar() 
+
+如果你没有明确选择一种颜色，那么虽然做了多个图，所有的条看起来会一样→使用一个新的Matplotlib自定义选项。你可以在
+任何类型的绘图中使用颜色，例如g为绿色，b为蓝
+色，”为红色，等等。你还可以使用
+
+
+十六进制颜色代码：#191970
 
 
 
 
+## Matplotlib 散点图 plt.scatter() 
+
+通常用于比较变量来寻找相关性或分组。
+
+
+## Matplotlib 堆叠图 plt.stackplot() 
+
+堆叠图用于显示『部分对整体』随时间的关系。
+堆叠图基本上类似于饼图，只是随时间而变化。
+
+
+## Matplotlib 饼图 plt.pie() 
 
 
 
 
+## 从文件加载数据
+
+```python
+
+import matplotlib.pyplot as plt
+
+import csv           #方法一 : csv
+import numpy as np   #方法二 ：numpy
+
+#===================方法一=========================
+x1=[]
+y1=[]
+
+with open('example.txt','r')as csvfile:
+    plots csv.reader(csvfile,delimiter=',')
+    for row in plots:
+        x1.append(int(row[0]))
+        y1.append(int(row[1]))
+
+#CSV读取器自动按行分割文件，然后使用分隔符分割文件中的数据。
+#注意：csv模块和csv reader不需要文件在字面上是一个.csv文件，
+#可以是任何具有分隔数据的简单的文本文件。
+
+plt.plot(x1,y1,label='Loaded from file!')
+
+plt.xlabel('x1')
+plt.ylabel('y1')
+plt.title('Interesting Graph\ncheck it out')
+
+plt.legend（）
+plt.show（）
+
+
+#===================方法二=========================
+x2, y2 = np.loadtxt('example.txt', delimiter=',', unpack=True)
+#loadtxt函数不要求文件是一个.txt文件，可以是.csv,python列表对象。
+
+plt.plot(x2,y2, label='Loaded from file!')
+
+plt.xlabel('x2')
+plt.ylabel('y2')
+plt.title('Interesting Graph\nCheck it out')
+
+plt.legend（）
+p1t.show（）
+
+```
 
 
 
 
+## 从网络加载数据
+
+读取网站的源代码，然后通过简单的拆分来分离数据。
 
 
 
+```python
 
 
-
-
+```
 
 
 
