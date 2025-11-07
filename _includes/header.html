@@ -23,12 +23,29 @@
         {% endif %}
       </li>
       {% endfor %}
+
+      <form role="search" method="get" id="search-form">
+        <input type="text" id="search-input" placeholder="Search..." />
+      </form>
+      <ul id="results"></ul>
+
+
+
+
     </ul>
   </nav>
 </header>
 
 
+<script>
+  var options = {
+    searchInput: document.getElementById('search-input'),  // 搜索框
+    resultsContainer: document.getElementById('results'),  // 搜索结果容器
+    json: '/assets/js/search.json'  // `search.json` 文件路径
+  };
 
+  var search = new SimpleJekyllSearch(options);
+</script>
 
 
 

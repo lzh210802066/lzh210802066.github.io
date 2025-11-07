@@ -1,0 +1,42 @@
+---
+layout: default
+title: 搜索
+---
+
+
+
+<div class="search-container">
+  <h2>搜索结果</h2>
+
+  <!-- 搜索框 -->
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="输入关键词搜索..." value="{{ site.search_query }}" autocomplete="off"
+      disabled>
+  </div>
+
+  <!-- 搜索结果 -->
+  <div id="search-results">
+    {% assign query = page.url | split: '?' | last | split: '=' | last %}
+    {% if query %}
+    <p>正在搜索：{{ query }}</p>
+    {% assign results = site.posts | where_exp: "post", "post.title contains query or post.content contains query or
+    post.excerpt contains query" %}
+
+    {% if results.size > 0 %}
+    <ul>
+      {% for post in results %}
+      <li>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <span class="date">{{ post.date | date: "%Y-%m-%d" }}</span>
+        <p>{{ post.excerpt | escape }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>没有找到相关结果。</p>
+    {% endif %}
+    {% else %}
+    <p>请输入搜索关键词。</p>
+    {% endif %}
+  </div>
+</div>
