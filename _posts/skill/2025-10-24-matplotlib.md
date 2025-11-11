@@ -18,10 +18,157 @@ Matplotlib是Python的绘图库，将数据图形化，用来绘制各种静态�
 Matplotlib 通常与[Numpy]({% post_url skill/2025-10-24-numpy %}) 和 [Scipy]({% post_url skill/2025-10-24-scipy %})一起使用，这种组合广泛用于替代 MatLab，是一个强大的科学计算环境，有助于通过 Python 学习数据科学或者机器学习。
 
 
+
+
+
+
 # 一、pyplot
 
 ## plot()：用于绘制线图和散点图
 Pyplot 是 Matplotlib 的子库，提供了和 MATLAB 类似的绘图 API。
+
+
+未声明哪一画板，就近原则，无则自动创建；
+未声明哪一画布，就近原则，无则自动创建；
+
+<table>
+       <tr>
+            <td>
+                    结构
+            </td>
+            <td>
+                面对对象风格 
+            </td>
+            <td>
+                面对过程风格（就近原则）
+            </td>
+        </tr>
+        <tr>
+            <td>
+                figure-画板
+            </td>
+             <td>
+                  <span style="color:#007acc">figure1</span>=plt.figure(figsize(1,1)) 
+             </td>
+             <td>
+                   （可隐式创建画板和画布）plt.figure(figsize(1,1))  
+             </td>
+        </tr>
+        <tr>
+            <td>
+                axes-画布 
+            </td>
+             <td>
+                  <span style="color:#007acc">axes1</span>=plt.subplot(2,2,1) 
+             </td>
+             <td>
+                   （可隐式创建画板和画布）plt.subplot(2,2,1) 
+             </td>
+        </tr>
+        <tr>
+             <td>
+                  title-标题 
+             </td>
+             <td>
+                  <span style="color:#007acc">axes1</span>.set_title() 
+             </td>
+             <td>
+                  plt.title()
+             </td>
+        </tr>
+        <tr>
+             <td>
+                 axis-轴 <br> ( axislabel-轴标签 )
+             </td>
+             <td>
+                  <span style="color:#007acc">axes1</span>.set_xlabel()  
+             </td>
+             <td>
+                  plt.xlabel()
+             </td>
+        </tr>
+        <tr>
+             <td>
+                  tickes-刻度 <br>( ticklabel-刻度标签 )
+             </td>
+             <td>
+                   <span style="color:#007acc">axes1</span>.set_xticks()        # x轴刻度位置<br>
+                   <span style="color:#007acc">axes1</span>.set_xticklabels()   # x轴刻度标签
+             </td>
+             <td>
+                 plt.xticks()# 刻度位置+标签
+             </td>
+        </tr>
+        <tr>
+             <td>
+                  刻度限 
+             </td>
+             <td>
+                  axes1.set_xlim()<br>axes1.axis([0, 10, -1, 2])
+             </td>
+             <td>
+                  plt.xlim(x.min(),x.max()+2)
+             </td>
+        </tr>
+        <tr>
+             <td>
+                  grid-网格线 
+             </td>
+             <td>
+                  <span style="color:#007acc">axes1</span>.grid()
+             </td>
+             <td>
+                   plt.grid()
+             </td>
+        </tr>
+        <tr>
+             <td>
+                  legend-图例 
+             </td>
+             <td>
+                  <span style="color:#007acc">axes1</span>.legend()  
+             </td>
+             <td>
+                  plt.legend(['1','2'])  
+             </td>
+        </tr>
+        <tr>
+             <td>
+                  annotate-注释 
+             </td>
+             <td>
+                  <span style="color:#007acc">axes1</span>.annotate()  
+             </td>
+             <td>
+                  plt.annotate()
+             </td>
+        </tr>
+        <tr>
+             <td>
+                   绘制图像
+             </td>
+             <td>
+                  <span style="color:#007acc">axes1</span>.plot() 
+             </td>
+             <td>
+                  plt.plot()
+             </td>
+        </tr>
+        <tr>
+             <td>
+                  显示图像 
+             </td>
+             <td>
+                  plt.show() 
+             </td>
+             <td>
+                  plt.show()
+             </td>
+        </tr>
+</table>
+
+
+
 
 
 ```python
@@ -367,6 +514,15 @@ p1t.show（）
 
 
 ```
+
+
+
+
+
+
+
+
+
 
 
 

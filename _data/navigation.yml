@@ -12,5 +12,3 @@ main:
         url: /posts/skill/
   - title: "关于"
     url: /about/
-  - title: "搜索"
-    url: /search/
