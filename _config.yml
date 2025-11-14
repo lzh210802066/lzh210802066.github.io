@@ -44,7 +44,7 @@ kramdown:
 # =====================================
 
 plugins:
-  - jekyll-feed # 自动生成 RSS 订阅 feed.xml
+  #- jekyll-feed # 自动生成 RSS 订阅 feed.xml
   - jekyll-seo-tag # 自动生成 SEO 相关 meta 标签（如标题、描述、Open Graph）
   #- jekyll-archives
 
@@ -59,3 +59,5 @@ exclude:
   - README.md
   - vendor # ✅ 新增：排除 Cloudflare 构建时生成的 vendor 目录
   - .bundle # ✅ 新增：排除 bundle 缓存目录
+
+encoding: utf-8
