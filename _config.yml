@@ -39,6 +39,9 @@ kramdown:
   hard_wrap: false # ✅ 普通换行不自动生成 <br>
   syntax_highlighter: rouge # ✅ Rouge 用于代码块高亮
 
+  math_engine: null
+  parse_block_html: true
+
 # =====================================
 # 🔌 插件设置（Plugins）
 # =====================================
