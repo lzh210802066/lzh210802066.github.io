@@ -1,6 +1,6 @@
 main:
-  - title: "所有文章"
-    url: /posts/
+  - title: "文章分类"
+    url:
     children:
       - title: "office"
         url: /posts/office/

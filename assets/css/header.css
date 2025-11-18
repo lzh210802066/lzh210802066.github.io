@@ -5,7 +5,7 @@
     background: #2c3e50;
     /* 背景色深蓝灰 */
     color: white;
-    padding: 1rem 2rem;
+    padding: 0rem 2.5rem;
     margin-bottom: 1rem;
     border-radius: 8px;
     box-sizing: border-box;
@@ -83,7 +83,7 @@
 .nav-links a {
     color: white;
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    padding: 0.3rem 1rem;
     display: block;
     border-radius: 4px;
     transition: background-color 0.2s ease;

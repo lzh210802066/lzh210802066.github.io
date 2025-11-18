@@ -3,11 +3,4 @@ layout: default
 title: 关于
 ---
 
-> 1
-> 
-> 2
-> 
-> 3
-
-
-
+<img src="" alt="" width="px">
