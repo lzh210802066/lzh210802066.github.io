@@ -175,10 +175,31 @@ Pyplot 是 Matplotlib 的子库，提供了和 MATLAB 类似的绘图 API。
 
 import matplotlib.pyplot as plt
 import numpy as np
+matplotlib.use('TKAgg')  # 设置为 'TKAgg' 后端
 
 from matplotlib import rcParams
-rcParams['font.sans-serif'] = ['SimHei'] # 设置中文字体（Windows 系统常用“SimHei”黑体） 
-rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
+
+# 设置中文字体（Windows 系统常用“SimHei”黑体） 
+rcParams['font.sans-serif'] = ['SimHei'] 
+
+# 解决负号显示问题
+rcParams['axes.unicode_minus'] = False  
+
+#全局画布颜色，白色 ; 浅灰 lightgray
+plt.rcParams['axes.facecolor'] = 'w' 
+   
+#显示绘图的静态图像
+%matplotlib inline 
+
+# 交互式绘图
+%matplotlib notebook     
+
+#========================面对对象风格========================
+
+
+#========================面对过程风格========================
+
+# 画板 plt.figure(figsize=(width, height), dpi=resolution)
 
 # 单条线: plt.plot ( [x], y, [fmt], *, data=None, **kwargs )
 # 多条线: plt.plot ( [x], y, [fmt], [x2], y2, [fmt2], ..., **kwargs )
@@ -199,18 +220,41 @@ rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
 #参数说明：
 #b：可选，默认为 None，可设置布尔值，true 为显示，false 为不显示，如果设置 **kwargs 参数，则值为 true。
 #which：可选，可选值有 'major'、'minor' 和 'both'，默认为 'major'，表示应用更改的网格线。
-#axis：可选，设置显示哪个方向的网格线，可以是取 'both'（默认），'x' （x 轴方向）或 'y'（ y 轴方向）。
+#axis：可选， 'both'（默认），'x' （x 轴方向）或 'y'（ y 轴方向）。
 #**kwargs：可选，设置网格样式，可以是 color='r', linestyle='-' 和 linewidth=2，分别表示网格线的颜色，样式和宽度。
 
-plt.plot(x1,y1,label='First Line')
 
-plt.plot(x2,y2,label='Second Line')
+#==============================================
+#==============================================
+# 绘制多个子图
+# 法一：subplot() 
+# subplot(nrows, ncols, index, **kwargs)
+
+# 法二：subplots() 
+# 创建一个 2×2 的子图布局
+# fig, axes = plt.subplots(nrows=2, ncols=2)
+# 访问每个子图并进行绘制
+# axes[0, 0].plot([1, 2, 3], [1, 4, 9])  
+
+
+
+plt.subplot(2, 2, 1)
+plt.plot(x1,y1,label='First Line')
+plt.title("plot 1")
+
+plt.subplot(2, 2, 2)
+plt.plot(x2,y3,label='Second Line')
+plt.title("plot 2")
+
 
 # 添加参数label:为线条指定名称，可在图例中显示。
-plt.title("TITLE\nsubtitle")     #标题
+plt.title("TITLE\nsubtitle")     #画布标题
 plt.xlabel("x - label")   #x轴标签
 plt.ylabel("y - label")   #y轴标签
 
+plt.suptitle("Test")   #画板标题
+#==============================================
+#==============================================
 
 
 #在plt.show()前,用来标示图形的文本标签图例
@@ -218,17 +262,36 @@ plt.ylabel("y - label")   #y轴标签
 # 方式二:plt.plot(x1,y1) plt.plot(x2,y2)  plt.legend(['1','2']) 
 plt.legend() 
 
+plt.savefig('.\lineplot.svg',dpi = 500)
+#保存与屏幕上显示的图形完全相同的图形，则应在调用 show() 之前调用 savefig()，否则将保存空文件。
+
+# plt.savefig(fname, dpi=None, bbox_inches='tight', pad_inches=0.1, format=None, kwargs)
+
+# fname − 要保存图形的文件名或路径。文件扩展名决定文件格式，例如 ".png"、".pdf"。
+# dpi − 每英寸点数，即保存图形的分辨率。默认为 "None"，使用 Matplotlib 默认值。
+# bbox_inches − 指定要保存图形的哪一部分。选项包括 'tight'、'standard' 或以英寸为单位指定的边界框。
+# pad_inches − 当 bbox_inches='tight' 时，图形周围的填充。
+# format − 显式指定文件格式。如果为 'None'，则从 fname 中的文件扩展名推断格式。
+# kwargs − 特定于所选文件格式的其他关键字参数。
+
 
 plt.show()
-
 ```
 
 
 
+图像函数
+
+Imread    将图像从文件读取到数组中。
+
+Imsave    将数组保存为图像文件。
+
+Imshow    在坐标轴上显示图像。
 
 
 
- 
+
+
 
 
 <table>
@@ -317,56 +380,6 @@ plt.show()
 
 
 
-### Matplotlib 绘制多图
-使用 pyplot 中的 subplot() 和 subplots() 方法来绘制多个子图。
-
-subplot() 方法在绘图时需要指定位置，
-
-```python
-subplot(nrows, ncols, index, **kwargs)
-```
-```python
-import matplotlib.pyplot as plt
-import numpy as np
-
-#plot 1:
-x = np.array([0, 6])
-y = np.array([0, 100])
-
-plt.subplot(2, 2, 1)
-plt.plot(x,y)
-plt.title("plot 1")
-
-#plot 2:
-x = np.array([1, 2, 3, 4])
-y = np.array([1, 4, 9, 16])
-
-plt.subplot(2, 2, 2)
-plt.plot(x,y)
-plt.title("plot 2")
-
-#plot 3:
-x = np.array([1, 2, 3, 4])
-y = np.array([3, 5, 7, 9])
-
-plt.subplot(2, 2, 3)
-plt.plot(x,y)
-plt.title("plot 3")
-
-#plot 4:
-x = np.array([1, 2, 3, 4])
-y = np.array([4, 5, 6, 7])
-
-plt.subplot(2, 2, 4)
-plt.plot(x,y)
-plt.title("plot 4")
-
-plt.suptitle("Test")
-plt.show()
-```
-
-subplots() 方法可以一次生成多个，在调用时只需要调用生成对象的 ax 即可。
-
 
 
 
@@ -433,7 +446,12 @@ p1t.show（）
 ```
 
 
+色标
+Matplotlib 库提供了一个用于处理色标的工具，包括其创建、放置和自定义。
 
+matplotlib.colorbar 模块负责创建色标，但是可以使用Figure.colorbar() 或其等效的 pyplot 包装器pyplot.colorbar() 函数创建色标。这些函数在内部使用 Colorbar 类以及make_axes_gridspec（用于 GridSpec 定位的轴）或make_axes（用于非 GridSpec 定位的轴）。
+
+并且色标需要是一个“可映射” (即 matplotlib.cm.ScalarMappable) 对象，通常是通过 imshow() 函数生成的 AxesImage。如果您想在没有附加图像的情况下创建色标，则可以使用没有关联数据的 ScalarMappable。
 
 
 

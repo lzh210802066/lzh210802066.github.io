@@ -146,3 +146,26 @@
     font-style: italic;
 }
 
+/* 分栏*/
+.container {
+    overflow: hidden;
+    /* 清除浮动 */
+}
+
+.column {
+    float: left;
+    /* 让元素浮动到左边 */
+    width: 48%;
+    /* 设置列宽，留出间距 */
+    padding: 20px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    margin-right: 4%;
+    /* 右边栏留出间距 */
+}
+
+.column:last-child {
+    margin-right: 0;
+    /* 去掉最后一栏的右边距 */
+}
+
