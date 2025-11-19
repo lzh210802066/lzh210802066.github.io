@@ -175,7 +175,6 @@ Pyplot 是 Matplotlib 的子库，提供了和 MATLAB 类似的绘图 API。
 
 import matplotlib.pyplot as plt
 import numpy as np
-matplotlib.use('TKAgg')  # 设置为 'TKAgg' 后端
 
 from matplotlib import rcParams
 
@@ -191,15 +190,21 @@ plt.rcParams['axes.facecolor'] = 'w'
 #显示绘图的静态图像
 %matplotlib inline 
 
-# 交互式绘图
-%matplotlib notebook     
+
+
+
+x = np.arange(0, np.pi*2, 0.05)
+y1 = np.sin(x)
+y2 = np.cos(x)
 
 #========================面对对象风格========================
 
 
 #========================面对过程风格========================
 
-# 画板 plt.figure(figsize=(width, height), dpi=resolution)
+# 设置画板 
+# plt.figure(figsize=(width, height), dpi=resolution)
+# 图表宽度和高度（英寸）; 图表每英寸点数（分辨率）,默认为 100。
 
 # 单条线: plt.plot ( [x], y, [fmt], *, data=None, **kwargs )
 # 多条线: plt.plot ( [x], y, [fmt], [x2], y2, [fmt2], ..., **kwargs )
@@ -223,7 +228,7 @@ plt.rcParams['axes.facecolor'] = 'w'
 #axis：可选， 'both'（默认），'x' （x 轴方向）或 'y'（ y 轴方向）。
 #**kwargs：可选，设置网格样式，可以是 color='r', linestyle='-' 和 linewidth=2，分别表示网格线的颜色，样式和宽度。
 
-
+# 设置画布
 #==============================================
 #==============================================
 # 绘制多个子图
@@ -231,26 +236,25 @@ plt.rcParams['axes.facecolor'] = 'w'
 # subplot(nrows, ncols, index, **kwargs)
 
 # 法二：subplots() 
-# 创建一个 2×2 的子图布局
 # fig, axes = plt.subplots(nrows=2, ncols=2)
-# 访问每个子图并进行绘制
+# plt.subplots()返回值为(元组) : (figure,axes_array)
+# 也可 fig,(axes1,axes2)
 # axes[0, 0].plot([1, 2, 3], [1, 4, 9])  
 
 
 
 plt.subplot(2, 2, 1)
-plt.plot(x1,y1,label='First Line')
-plt.title("plot 1")
+plt.plot(x,y1,label='First Line')
+plt.title("plot 1")        #画布标题
+plt.xlabel("x - label")   #x轴标签
+plt.ylabel("y1 - label")   #y轴标签
+plt.legend() 
 
 plt.subplot(2, 2, 2)
-plt.plot(x2,y3,label='Second Line')
-plt.title("plot 2")
-
-
-# 添加参数label:为线条指定名称，可在图例中显示。
-plt.title("TITLE\nsubtitle")     #画布标题
+plt.plot(x,y2,label='Second Line')
+plt.title("plot 2")        #画布标题
 plt.xlabel("x - label")   #x轴标签
-plt.ylabel("y - label")   #y轴标签
+plt.ylabel("y2 - label")   #y轴标签
 
 plt.suptitle("Test")   #画板标题
 #==============================================
@@ -258,9 +262,26 @@ plt.suptitle("Test")   #画板标题
 
 
 #在plt.show()前,用来标示图形的文本标签图例
-# 方式一:plt.plot(x1,y1,label='1') plt.plot(x2,y2,label='2') plt.legend() 
-# 方式二:plt.plot(x1,y1) plt.plot(x2,y2)  plt.legend(['1','2']) 
+# 方式一
+# plt.plot(x,y1,label='1') 
+# plt.plot(x,y2,label='2') 
+# plt.legend() 
+
+# 方式二
+# axes1=plt.plot(x,y1) 
+# axes2=plt.plot(x,y2)  
+# plt.legend([axes1,axes2],['1','2']) 
+
+# 方式三
+# axes1=plt.plot(x,y1,label='1') 
+# axes2=plt.plot(x,y2,label='2') 
+#plt.legend(handles=[axes1, axes2])
+
+# 在一个 axes 中添加多个图例
+
 plt.legend() 
+
+
 
 plt.savefig('.\lineplot.svg',dpi = 500)
 #保存与屏幕上显示的图形完全相同的图形，则应在调用 show() 之前调用 savefig()，否则将保存空文件。
@@ -454,8 +475,19 @@ matplotlib.colorbar 模块负责创建色标，但是可以使用Figure.colorbar
 并且色标需要是一个“可映射” (即 matplotlib.cm.ScalarMappable) 对象，通常是通过 imshow() 函数生成的 AxesImage。如果您想在没有附加图像的情况下创建色标，则可以使用没有关联数据的 ScalarMappable。
 
 
+颜色表示格式
 
+RGB 或 RGBA 元组
+(0.1 ,0.2,0.3)
 
+十六进制 RGB 或 RGBA 字符串
+'#0F0F0F' 
+
+灰度级字符串
+'0.7' (范围 [0,1])
+
+命名颜色
+“b”：蓝色，“g”：绿色，“r”：红色，
 
 
 
