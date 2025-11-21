@@ -22,9 +22,9 @@ Matplotlib 通常与[Numpy]({% post_url skill/2025-10-24-numpy %}) 和 [Scipy]({
 
 
 
-# 一、pyplot
+## 一、pyplot
 
-## plot()：用于绘制线图和散点图
+### plot()：用于绘制线图和散点图
 Pyplot 是 Matplotlib 的子库，提供了和 MATLAB 类似的绘图 API。
 
 
@@ -404,7 +404,7 @@ Imshow    在坐标轴上显示图像。
 
 
 
-## 从文件加载数据
+### 从文件加载数据
 
 ```python
 
@@ -455,7 +455,7 @@ p1t.show（）
 
 
 
-## 从网络加载数据
+### 从网络加载数据
 
 读取网站的源代码，然后通过简单的拆分来分离数据。
 
