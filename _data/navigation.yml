@@ -2,8 +2,8 @@ main:
   - title: "文章分类"
     url:
     children:
-      - title: "office"
-        url: /posts/office/
+      - title: "MS_office"
+        url: /posts/MS_office/
       - title: "CS"
         url: /posts/cs/
       - title: "技术"
@@ -11,4 +11,4 @@ main:
       - title: "skill"
         url: /posts/skill/
   - title: "搜索栏"
-    url: /about/
+    url:
