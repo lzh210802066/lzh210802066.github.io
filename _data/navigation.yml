@@ -1,13 +1,13 @@
 main:
-  - title: "文章分类"
-    url:
+  - title: "文章 ⌵"
+    url: /posts/
     children:
       - title: "MS_office"
         url: /posts/MS_office/
-      - title: "CS"
-        url: /posts/cs/
-      - title: "技术"
+      - title: "物理"
         url: /posts/technology/
+      - title: "计算机"
+        url: /posts/cs/
       - title: "skill"
         url: /posts/skill/
   - title: "搜索栏"

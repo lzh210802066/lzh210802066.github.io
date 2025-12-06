@@ -24,12 +24,11 @@ Matplotlib 通常与[Numpy]({% post_url skill/2025-10-24-numpy %}) 和 [Scipy]({
 
 ## 一、pyplot
 
-### plot()：用于绘制线图和散点图
+### plot( )：用于绘制线图和散点图
 Pyplot 是 Matplotlib 的子库，提供了和 MATLAB 类似的绘图 API。
 
 
-未声明哪一画板，就近原则，无则自动创建；
-未声明哪一画布，就近原则，无则自动创建；
+**未声明哪一画板，就近原则，无则自动创建；未声明哪一画布，就近原则，无则自动创建；**
 
 <table>
        <tr>
