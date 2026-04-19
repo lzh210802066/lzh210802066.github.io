@@ -14,6 +14,8 @@ source "https://rubygems.org"
 # Jekyll 是整个静态网站生成的核心引擎
 gem "jekyll", "~> 4.3.0"
 gem "webrick", "~> 1.8"  # Ruby 3.0+ 必需
+gem "csv", "~> 3.0"
+gem "logger"
 
 
 # 核心 Markdown 解析器
