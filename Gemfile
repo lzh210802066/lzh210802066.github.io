@@ -16,7 +16,7 @@ gem "jekyll", "~> 4.3.0"
 gem "webrick", "~> 1.8"  # Ruby 3.0+ 必需
 gem "csv", "~> 3.0"
 gem "logger"
-
+gem "base64"
 
 # 核心 Markdown 解析器
 gem "kramdown"
