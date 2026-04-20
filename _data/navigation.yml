@@ -5,8 +5,8 @@ main:
       - title: "MS_office"
         url: /posts/MS_office
       - title: "物理"
-        url: /posts/technology/
+        url: /posts/technology
       - title: "计算机"
-        url: /posts/cs/
+        url: /posts/cs
       - title: "skill"
-        url: /posts/skill/
+        url: /posts/skill
