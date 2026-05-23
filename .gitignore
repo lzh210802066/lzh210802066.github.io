@@ -4,8 +4,7 @@ _site/
 # Ruby Bundler 本地安装目录
 .bundle/
 
-# VS Code 编辑器配置
-.vscode/
+
 
 # 系统临时文件
 *.log
