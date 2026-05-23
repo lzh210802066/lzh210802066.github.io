@@ -4,8 +4,6 @@ _site/
 # Ruby Bundler 本地安装目录
 .bundle/
 
-
-
 # 系统临时文件
 *.log
 *.tmp
