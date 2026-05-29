@@ -11,7 +11,7 @@
     {
       "label": "[qinhan8013.github.io] Git Push",
       "type": "shell",
-      "command": "git add .; git commit -m 'Update blog content'; git push",
+      "command": "git add .; git commit -m 'Update blog content'; git push origin main --force",
       "group": "build",
       "problemMatcher": []
     }
