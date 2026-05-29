@@ -31,7 +31,7 @@ body {
     /* 页面背景颜色，浅色背景方便阅读 */
 
     /* ✅ 添加这两行 */
-        width: 100%;
+        width: 90%;
         max-width: 1200px;
 
     /* max-width: 900px; */
