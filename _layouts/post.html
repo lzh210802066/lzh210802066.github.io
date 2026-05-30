@@ -6,12 +6,11 @@
 <body>
     {% include header.html %}
 
-    <link rel="stylesheet" href="{{ '/assets/css/posts.css' | relative_url }}">
-
     <!-- 新增目录样式 -->
     <style>
         /* 整体布局容器 - 包含目录和主内容 */
-        .page-layout {
+        .page-layout 
+		{
             display: flex;
             gap: 20px;
             max-width: 1400px;
@@ -21,7 +20,8 @@
         }
 
         /* 目录侧边栏 */
-        .toc-wrapper {
+        .toc-wrapper 
+		{
             flex: 0 0 200px;
             position: sticky;
             top: 20px;
@@ -30,14 +30,16 @@
             overflow-y: auto;
         }
 
-        .toc {
+        .toc 
+		{
             background: white;
             border-radius: 8px;
             padding: 0px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .toc-title {
+        .toc-title 
+		{
             font-size: 18px;
             font-weight: 600;
             margin-bottom: 0px;
@@ -46,17 +48,20 @@
             padding-bottom: 0px;
         }
 
-        .toc ul {
+        .toc ul 
+		{
             list-style: none;
             padding: 0;
             margin: 0;
         }
 
-        .toc li {
+        .toc li 
+		{
             margin: 5px 0;
         }
 
-        .toc a {
+        .toc a 
+		{
             text-decoration: none;
             color: #555;
             display: block;
@@ -66,35 +71,41 @@
             font-size: 14px;
         }
 
-        .toc a:hover {
+        .toc a:hover 
+		{
             background: #e8f4f8;
             color: #3498db;
             transform: translateX(5px);
         }
 
-        .toc a.active {
+        .toc a.active 
+		{
             background: #3498db;
             color: white;
             font-weight: 500;
         }
 
-        .toc .toc-h3 {
+        .toc .toc-h3 
+		{
             padding-left: 15px;
             font-size: 13px;
         }
 
-        .toc .toc-h4 {
+        .toc .toc-h4 
+		{
             padding-left: 30px;
             font-size: 12px;
         }
 
         /* 主内容区域 */
-        .main-content-wrapper {
+        .main-content-wrapper 
+		{
             flex: 1;
             min-width: 0;
         }
 
-        main.post-with-lines {
+        main.post-with-lines 
+		{
             background: white;
             padding: 40px;
             border-radius: 8px;
@@ -105,21 +116,25 @@
         }
 
         /* 滚动条样式 */
-        .toc-wrapper::-webkit-scrollbar {
+        .toc-wrapper::-webkit-scrollbar 
+		{
             width: 6px;
         }
 
-        .toc-wrapper::-webkit-scrollbar-track {
+        .toc-wrapper::-webkit-scrollbar-track 
+		{
             background: #f1f1f1;
             border-radius: 3px;
         }
 
-        .toc-wrapper::-webkit-scrollbar-thumb {
+        .toc-wrapper::-webkit-scrollbar-thumb 
+		{
             background: #888;
             border-radius: 3px;
         }
 
-        .toc-wrapper::-webkit-scrollbar-thumb:hover {
+        .toc-wrapper::-webkit-scrollbar-thumb:hover 
+		{
             background: #555;
         }
 
@@ -137,17 +152,21 @@
                 
             } */
             /* 响应式设计 - 移动端：当宽度小于 768px 时隐藏目录 */
-        @media (max-width: 768px) {
-            .toc-wrapper {
+        @media (max-width: 768px) 
+		{
+            .toc-wrapper 
+		    {
                 display: none; /* 直接隐藏整个目录侧边栏 */
             }
 
-            .page-layout {
+            .page-layout 
+			{
                 flex-direction: column;
                 gap: 0; /* 移动端不需要间距 */
             }
 
-            main.post-with-lines {
+            main.post-with-lines 
+			{
                 padding: 0px;
                 border-radius: 0; /* 手机端通常去圆角更美观，可选 */
             }
@@ -155,16 +174,19 @@
 
 
         /* 文章标题区域 */
-        .post-header {
+        .post-header 
+		{
             margin-bottom: 2rem;
         }
 
-        p {
+        p 
+		{
             margin-bottom: 20px;
             font-size: 18px;
         }
 
-        #copyTip {
+        #copyTip 
+		{
             position: fixed;
             top: 20px;
             right: 20px;
@@ -219,14 +241,17 @@
 
     <script>
         // ========== 自动生成目录 ==========
-        function generateTOC() {
+        function generateTOC() 
+		{
             const content = document.querySelector('.post-content');
             const headings = content.querySelectorAll('h2, h3, h4');
             const tocList = document.getElementById('toc-list');
 
             // 为每个标题添加 ID（如果没有的话）
-            headings.forEach((heading, index) => {
-                if (!heading.id) {
+            headings.forEach((heading, index) => 
+		{
+                if (!heading.id) 
+		        {
                     heading.id = `heading-${index}`;
                 }
 
@@ -236,16 +261,22 @@
                 a.textContent = heading.textContent;
 
                 // 根据标题级别添加不同的类名
-                if (heading.tagName === 'H2') {
+                if (heading.tagName === 'H2') 
+				{
                     a.className = 'toc-h2';
-                } else if (heading.tagName === 'H3') {
+                } 
+                else if (heading.tagName === 'H3') 
+				{
                     a.className = 'toc-h3';
-                } else if (heading.tagName === 'H4') {
+                } 
+                else if (heading.tagName === 'H4') 
+				{
                     a.className = 'toc-h4';
                 }
 
                 // 点击平滑滚动
-                a.addEventListener('click', (e) => {
+                a.addEventListener('click', (e) => 
+				{
                     e.preventDefault();
                     heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     // 更新 URL hash
@@ -258,27 +289,33 @@
         }
 
         // ========== 高亮当前阅读的章节 ==========
-        function highlightCurrentSection() {
+        function highlightCurrentSection() 
+		{
             const headings = document.querySelectorAll('.post-content h2, .post-content h3, .post-content h4');
             const tocLinks = document.querySelectorAll('.toc a');
 
             if (headings.length === 0 || tocLinks.length === 0) return;
 
-            window.addEventListener('scroll', () => {
+            window.addEventListener('scroll', () => 
+            {
                 let current = '';
                 const scrollPos = window.scrollY + 100;
 
-                headings.forEach(heading => {
+                headings.forEach(heading => 
+                {
                     const sectionTop = heading.offsetTop;
 
-                    if (scrollPos >= sectionTop) {
+                    if (scrollPos >= sectionTop) 
+                    {
                         current = heading.id;
                     }
                 });
 
-                tocLinks.forEach(link => {
+                tocLinks.forEach(link => 
+                {
                     link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${current}`) {
+                    if (link.getAttribute('href') === `#${current}`) 
+                    {
                         link.classList.add('active');
                     }
                 });
@@ -288,55 +325,70 @@
         // ========== 复制功能 ==========
         const copyTip = document.getElementById('copyTip');
 
-        function showTip() {
+        function showTip() 
+		{
             copyTip.style.opacity = '1';
             setTimeout(() => copyTip.style.opacity = '0', 1000);
         }
 
-        function copyTextToClipboard(text) {
+        function copyTextToClipboard(text) 
+		{
             if (!text) return;
-            if (navigator.clipboard && navigator.clipboard.writeText) {
+            if (navigator.clipboard && navigator.clipboard.writeText) 
+		    {
                 navigator.clipboard.writeText(text).then(showTip).catch(() => fallbackCopy(text));
-            } else {
+            } else 
+            {
                 fallbackCopy(text);
             }
         }
 
-        function fallbackCopy(text) {
+        function fallbackCopy(text) 
+        {
             const textarea = document.createElement('textarea');
             textarea.value = text;
             document.body.appendChild(textarea);
             textarea.select();
-            try {
+            try 
+            {
                 document.execCommand('copy');
                 showTip();
-            } catch (err) {
+            } 
+            catch (err) 
+            {
                 console.error('复制失败', err);
             }
             textarea.remove();
         }
 
-        document.addEventListener('mouseup', (event) => {
+        document.addEventListener('mouseup', (event) => 
+        {
             if (event.button !== 0) return;
 
-            setTimeout(() => {
+            setTimeout(() => 
+            {
                 const selection = window.getSelection().toString().trim();
-                if (selection.length > 0) {
+                if (selection.length > 0) 
+                {
                     copyTextToClipboard(selection);
                 }
             }, 20);
         });
 
         // ========== 页面加载完成后执行 ==========
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', () => 
+        {
             generateTOC();
             highlightCurrentSection();
 
             // 如果 URL 中有 hash，滚动到对应位置
-            if (window.location.hash) {
-                setTimeout(() => {
+            if (window.location.hash) 
+            {
+                setTimeout(() => 
+                {
                     const target = document.querySelector(window.location.hash);
-                    if (target) {
+                    if (target) 
+                    {
                         target.scrollIntoView({ behavior: 'smooth' });
                     }
                 }, 100);
@@ -350,11 +402,22 @@
 
 
 
-<!--===========================================================
-    ===========================================================
-    ===========================================================
-    ===========================================================
-    ============================================================-->
+<!--======================================================================================
+    ======================================================================================
+                                                                     
+                                                                     
+                                            ==                       
+                      +@*                  -@@-                      
+          ..-.      .-@@+-. .-.        .-. -@@-       ..-.           
+       :#@#+++%@#-  =*@@%** -@@=      =@%. -@@-    =%@#++#%%+-       
+      .@@=     :*=    %@*    -@@:    :@%.  -@@-  .@@*      -@@:      
+       :+%@@%#*=:     %@*     :@@-  -@@.   -@@-  +@@%%%%%%%%@@%      
+       ..  .-:=+@@:   %@*      =@@.-@@-    -@@-  *@@.       ..       
+      -@@*-   .=@@:   %@#..     =@%%@-     -@@-   +@%=.   -+@%:      
+        :*##%##+=.    -+#%%-     *@@-      .%%.    .=+##%#+*:        
+                                -%@-                                 
+                             +@@%+.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+-->
 
 
 
@@ -394,7 +457,8 @@
 }
 
 /* 正文段落间距与首行缩进 */
-.post-content p {
+.post-content p 
+{
     margin-bottom: 1rem;
     text-indent: 0em;
     /* 首行缩进0个字符宽度 */

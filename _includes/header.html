@@ -3,15 +3,17 @@
     <!-- 网站标题
     <h1>
       <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
-    </h1>-->
+    </h1>
+    -->
 
     <!-- 网站标题改为头像 -->
-    <h1 class="site-logo">
-      <a href="{{ '/' | relative_url }}">
-        <img src="/assets/images/OHM.jpg" alt="avatar">
-      </a>
-    </h1>
 
+
+    <div class="site-logo">
+        <a href="{{ '/' | relative_url }}">
+            <img src="/assets/images/OHM.jpg" alt="avatar">
+        </a>
+    </div>
 
 
     <!-- 网站描述 
@@ -40,177 +42,175 @@
 
 <!--===========================================================
     ===========================================================
-    ===========================================================
-    ===========================================================
-    ============================================================-->
+                                                                     
+                                                                     
+                                            ==                       
+                      +@*                  -@@-                      
+          ..-.      .-@@+-. .-.        .-. -@@-       ..-.           
+       :#@#+++%@#-  =*@@%** -@@=      =@%. -@@-    =%@#++#%%+-       
+      .@@=     :*=    %@*    -@@:    :@%.  -@@-  .@@*      -@@:      
+       :+%@@%#*=:     %@*     :@@-  -@@.   -@@-  +@@%%%%%%%%@@%      
+       ..  .-:=+@@:   %@*      =@@.-@@-    -@@-  *@@.       ..       
+      -@@*-   .=@@:   %@#..     =@%%@-     -@@-   +@%=.   -+@%:      
+        :*##%##+=.    -+#%%-     *@@-      .%%.    .=+##%#+*:        
+                                -%@-                                 
+                             +@@%+.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+-->
 
 <style>
 
-.site-logo img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
+
+.site-header    /* 页眉整体样式*/
+{
+    background: #2c3e50;   /* 深蓝灰背景色 */
+    color: white;           /* 文字颜色为白色（会被子元素继承） */
+    padding: 0rem 2.5rem;   /* 上下0内边距，左右2.5rem */
+    margin-bottom: 0rem;    /* 与下方内容的间距 */
+    border-radius: 8px;     /* 四角圆角 */
+    box-sizing: border-box; /* padding不增加实际宽度（推荐做法） */
+     
 }
 
-/* ============================================================
-页眉整体样式
-============================================================ */
-.site-header {
-    background: #2c3e50;
-    /* 背景色深蓝灰 */
-    color: white;
-    padding: 0rem 2.5rem;
-    margin-bottom: 1rem;
-    border-radius: 8px;
-    box-sizing: border-box;
+
+.site-logo img      /* 头像 */
+{
+    width: 80px;
+    height: 80px;           /* 固定尺寸，保证圆形不变形 */
+    border-radius: 50%;     /* 关键：50%使矩形变圆形 */
+    object-fit: cover;      /* 图片裁剪填充，防止拉伸 */
 }
+
+
 
 /* ============================================================
 导航栏容器 - 使用 Flexbox 横向布局
 ============================================================ */
-.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-/* ============================================================
-左侧标题和头像
-============================================================ */
-.nav-left {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.nav-left .site-avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #ff6f61;
-    /* 头像边框与 header 边框一致 */
+.navbar 
+{
+    display: flex;              /* 启用Flexbox布局 */
+    align-items: center;        /* 子元素垂直居中对齐 */
+    justify-content: space-between; /* 两端对齐：头像靠左，菜单靠右 */
+    flex-wrap: wrap;            /* 允许换行（小屏幕时自动折行） */
+    gap: 1rem;                  /* 子元素间距 */
 }
 
 /* 网站标题 */
-.navbar h1 {
-    margin: 0;
-    font-size: 1.5rem;
+.navbar h1 
+{
+    margin: 0;          /* 消除浏览器默认的h1外边距 */
+    font-size: 1.5rem;  /* 字体大小 */
 }
 
-.navbar h1 a {
-    color: white;
-    text-decoration: none;
-    font-weight: 700;
-}
-
-.navbar h1 a:hover {
-    opacity: 0.8;
-}
-
-/* 网站描述文字 */
-.navbar p {
-    opacity: 0.8;
-    margin: 0.3rem 0 0 0;
-    font-size: 0.9rem;
-}
 
 /* ============================================================
 主导航列表 - 横向排列
 ============================================================ */
-.nav-links {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    margin: 0;
-    padding: 0;
+.nav-links 
+{
+    list-style: none;       /* 去掉默认圆点 */
+    display: flex;          /* 横向Flexbox */
+    align-items: center;    /* 垂直居中 */
+    gap: 1.5rem;            /* 导航项间距 */
+    margin: 0;              /* 清除默认外边距 */
+    padding: 0;             /* 清除默认内边距 */
 }
 
-.nav-links>li {
-    position: relative;
+.nav-links>li 
+{
+    position: relative; /* 为子元素 .dropdown 的绝对定位提供参照 */
 }
 
 /* 导航链接样式 */
-.nav-links a {
+.nav-links a 
+{
     color: white;
-    text-decoration: none;
-    padding: 0.3rem 1rem;
-    display: block;
+    text-decoration: none;              /* 去掉下划线 */
+    padding: 0.3rem 1rem;              /* 增大点击区域 */
+    display: block;                     /* 使a占满整个li区域，易点击 */
     border-radius: 4px;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease; /* 悬停过渡动画，0.2秒 */
 }
 
-.nav-links a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+.nav-links a:hover 
+{
+    background-color: rgba(255, 255, 255, 0.1); /* 半透明白色高亮 */
 }
+
 
 /* 下拉菜单样式 */
-.nav-links .dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
+.nav-links .dropdown 
+{
+    display: none;              /* 默认隐藏 */
+    position: absolute;         /* 脱离文档流，相对最近的 position:relative 父元素定位 */
+    top: 100%;                  /* 紧贴父元素底部 */
     left: 0;
-    background-color: #34495e;
+    background-color: #34495e; /* 略浅于页眉的深蓝灰 */
     list-style: none;
     padding: 0.5rem 0;
     margin: 0;
     min-width: 150px;
     border-radius: 4px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 阴影增加层次感 */
+    z-index: 1000;              /* 保证浮在其他内容上方 */
 }
 
-.nav-links li:hover .dropdown {
-    display: block;
+.nav-links li:hover .dropdown 
+{
+    display: block;             /* 鼠标悬停父li时显示下拉菜单 */
 }
 
-.nav-links .dropdown li {
-    margin: 0;
+.nav-links .dropdown li 
+{
+    margin: 0;  /* 清除可能继承的外边距 */
 }
 
-.nav-links .dropdown a {
+.nav-links .dropdown a 
+{
     padding: 0.5rem 1rem;
-    white-space: nowrap;
+    white-space: nowrap;    /* 防止文字换行，保持单行 */
 }
 
-.nav-links .dropdown a:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-}
 
+.nav-links .dropdown a:hover 
+{
+    background-color: rgba(255, 255, 255, 0.15); /* 略深于主导航的悬停色 */
+}
 /* ============================================================
 响应式设计 - 移动端适配
 ============================================================ */
-@media (max-width: 768px) {
-.navbar {
-    flex-direction: column;
-    align-items: flex-start;
-}
+@media (max-width: 768px) 
+{
+    .navbar 
+    {
+        flex-direction: column;     /* 改为纵向排列（头像在上，菜单在下） */
+        align-items: flex-start;    /* 左对齐 */
+    }
 
-.nav-left {
-    margin-bottom: 0.5rem;
-}
+    .nav-left 
+    {
+        margin-bottom: 0.5rem;  /* ⚠️ 冗余代码：HTML中没有.nav-left类！ */
+    }
 
-.nav-links {
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    gap: 0.5rem;
-}
+    .nav-links 
+    {
+        flex-direction: column; /* 导航项纵向排列 */
+        align-items: flex-start;
+        width: 100%;            /* 占满宽度 */
+        gap: 0.5rem;
+    }
 
-.nav-links .dropdown {
-    position: static;
-    display: none;
-    background-color: rgba(255, 255, 255, 0.1);
-    margin-top: 0.5rem;
-}
+    .nav-links .dropdown 
+    {
+        position: static;       /* 取消绝对定位，回归文档流 */
+        display: none;
+        background-color: rgba(255, 255, 255, 0.1);
+        margin-top: 0.5rem;
+    }
 
-.nav-links li:hover .dropdown {
-    display: block;
-}
+    .nav-links li:hover .dropdown 
+    {
+        display: block;         /* 移动端仍用:hover，但实际无效（见上方说明）*/
+    }
 }
 
 </style>

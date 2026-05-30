@@ -1,5 +1,6 @@
 /* 通用样式重置：移除默认的 margin、padding，并启用 border-box 盒模型 */
-* {
+* 
+{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -7,7 +8,8 @@
 }
 
 /* 页面主体基础设置 */
-body {
+body 
+{
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     line-height: 1.6;
     /* 增加行距，提升可读性 */
@@ -35,8 +37,10 @@ body {
 
 
 /* 平板端 */
-@media (max-width: 1024px) {
-    body {
+@media (max-width: 1024px) 
+{
+    body 
+    {
         width: 95%;
         /* 平板占 95% 宽度 */
         max-width: none;
@@ -52,7 +56,8 @@ body {
 /* ==========================================这是 CSS 注释===================================================== */
 
 /* 主体区域样式 */
-main {
+main 
+{
     background: white;
     /* 主内容区域背景为白色 */
     padding: 2rem;
@@ -168,10 +173,12 @@ em
 /* ==========================================这是 CSS 注释===================================================== */
 
 /* ========== 响应式设计（移动端适配） ========== */
-@media (max-width: 768px) {
+@media (max-width: 768px) 
+{
 
     /* 页面整体 */
-    body {
+    body 
+    {
         padding: 10px;
         /* 缩小内边距，提高移动端可视面积 */
         font-size: 16px;
@@ -179,31 +186,36 @@ em
     }
 
     /* 页眉 */
-    header {
+    header 
+    {
         padding: 1.5rem 1rem;
         /* 缩小页眉内边距 */
     }
 
     /* 主内容区域 */
-    main {
+    main 
+    {
         padding: 1rem;
         /* 减小内容内边距 */
     }
 
     /* KaTeX 内联公式 */
-    .katex {
+    .katex 
+    {
         font-size: 1em;
         /* 保持默认字号 */
     }
 
     /* KaTeX 块级公式 */
-    .katex-display {
+    .katex-display 
+    {
         font-size: 0.95em;
         /* 略微缩小，适配小屏幕 */
     }
 
     /* 代码块 */
-    pre {
+    pre 
+    {
         font-size: 0.85em;
         /* 缩小字体，避免超出屏幕宽度 */
     }
