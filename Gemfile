@@ -3,17 +3,20 @@
 # =====================================
 
 # 指定 RubyGems 的源（相当于软件仓库），用于下载依赖包
-source "https://rubygems.org"
-
+# source "https://rubygems.org"
+source "https://mirrors.tuna.tsinghua.edu.cn/rubygems/"
 # -------------------------------------
 # 🧱 核心依赖
 # -------------------------------------
+
+
 
 # 安装 Jekyll 博客框架
 # "~> 4.3" 表示使用 4.3.x 版本（例如 4.3.2、4.3.3 等）
 # Jekyll 是整个静态网站生成的核心引擎
 gem "jekyll", "~> 4.3.0"
 gem "webrick", "~> 1.8"  # Ruby 3.0+ 必需
+gem "ffi", "~> 1.17"
 gem "csv", "~> 3.0"
 gem "logger"
 gem "base64"
@@ -48,3 +51,5 @@ group :jekyll_plugins do
   # 让搜索引擎更容易理解你的网站内容
   gem "jekyll-seo-tag"
 end
+
+
