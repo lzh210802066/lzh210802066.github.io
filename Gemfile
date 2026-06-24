@@ -3,8 +3,8 @@
 # =====================================
 
 # 指定 RubyGems 的源（相当于软件仓库），用于下载依赖包
-# source "https://rubygems.org"
-source "https://mirrors.tuna.tsinghua.edu.cn/rubygems/"
+source "https://rubygems.org"
+# source "https://mirrors.tuna.tsinghua.edu.cn/rubygems/"
 # -------------------------------------
 # 🧱 核心依赖
 # -------------------------------------
